@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Function to display help
+# funcion usage para mostrar como se debe usar el prgrama
 function usage() {
     echo "Usage: scdebug [-h] [-sto arg] [-v | -vall] [-nattch progtoattach] [prog [arg1 ...]]"
     echo "-h         Muestra esta salida de texto para ayudar."
