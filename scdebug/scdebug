@@ -6,7 +6,7 @@ function usage() {
     echo "-h         Muestra esta salida de texto para ayudar."
     echo "-sto arg   Strace options con mas argumentos."
     echo "-nattch progtoattach   Hace un attach al programa indicado."
-    exit 1
+    exit 0
 }
 
 # Crea un directorio en acso de que no exista
@@ -70,5 +70,5 @@ fi
 # ejecutamos en segundo plano
 $strace_command &
 
-echo "strace command is running in the background."
+echo "Comando ejecutandose en segundo plano."
 echo "Trace file: $trace_file"
