@@ -1,0 +1,78 @@
+#!/bin/bash
+
+# Function to display help
+function usage() {
+    echo "Usage: scdebug [-h] [-sto arg] [-v | -vall] [-nattch progtoattach] [prog [arg1 ...]]"
+    echo "-h         Display this help message."
+    echo "-sto arg   Specify options for strace (use quotes for multiple options)."
+    echo "-v         Verbose mode: Display strace output to stdout."
+    echo "-vall      Verbose mode for all commands: Display strace output for all commands to stdout."
+    echo "-nattch progtoattach   Attach to a running process with the given program name."
+    exit 1
+}
+
+# Function to create the directory if it doesn't exist
+function create_dir() {
+    if [ ! -d "$1" ]; then
+        mkdir -p "$1"
+    fi
+}
+
+# Parse options
+strace_options=""
+attach_program=""
+program=""
+args=()
+while [ "$#" -gt 0 ]; do
+    case "$1" in
+        -sto)
+            shift
+            strace_options="$1"
+            ;;
+
+        -nattch)
+            shift
+            attach_program="$1"
+            ;;
+        -h)
+            usage
+            ;;
+        *)
+            if [ -z "$program" ]; then
+                program="$1"
+            else
+                args+=("$1")
+            fi
+            ;;
+    esac
+    shift
+done
+
+# Generate a unique identifier
+uuid=$(uuidgen)
+
+# Define the trace directory path
+trace_dir=".scdebug/$program"
+trace_file="$trace_dir/trace_$uuid.txt"
+
+# Create the trace directory if it doesn't exist
+create_dir "$trace_dir"
+
+# If attaching to a running process, find the most recent one
+if [ -n "$attach_program" ]; then
+    pid=$(pgrep -n "$attach_program")
+    if [ -z "$pid" ]; then
+        echo "No running process found with name: $attach_program"
+        exit 1
+    fi
+    strace_command="strace $strace_options -p $pid -o $trace_file"
+else
+    # Start a new process with strace
+    strace_command="strace $strace_options -o $trace_file $program ${args[@]}"
+fi
+
+# Execute strace in the background
+$strace_command &
+
+echo "strace command is running in the background."
+echo "Trace file: $trace_file"
