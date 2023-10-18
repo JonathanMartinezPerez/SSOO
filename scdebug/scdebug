@@ -20,6 +20,7 @@ strace_options=""
 attach_program=""
 program=""
 args=()
+consult=""
 while [ "$#" -gt 0 ]; do
     case "$1" in
         -sto)
@@ -33,6 +34,12 @@ while [ "$#" -gt 0 ]; do
             ;;
         -h)
             usage
+            ;;
+        -v)
+            consult="unic"
+            ;;
+        -vall)
+            consult="all"
             ;;
         *)
             if [ -z "$program" ]; then
@@ -67,8 +74,33 @@ else
     strace_command="strace $strace_options -o $trace_file $program ${args[@]}"
 fi
 
+if [ "$consult" == "unic" ]; then
+    last_tracef=$(ls -t $trace_dir | head -n 1)
+    if [ -n $last_tracef ]; then
+        echo "=============== COMMAND: $program ==============================================="
+        echo "=============== TRACE FILE: $last_tracef ========================================"
+        echo "=============== TIME: $(stat -c %y "$trace_dir/$latest_trace_file")=============="
+ 
+    else
+        echo "No se encontraron traces para $program"
+    fi
+
+elif [ "$consult" == "all" ]; then
+    tracefiles=$(ls -t $trace_dir)
+    if [ -n "$tracefiles" ]; then
+        for tracef in $tracefiles; do
+            echo "=============== COMMAND: $program ==============================================="
+            echo "=============== TRACE FILE: $tracef ========================================"
+            echo "=============== TIME: $(stat -c %y "$trace_dir/$tracef")=============="
+        done
+    else
+        echo "No se encontraron traces para $program"
+    fi
+fi
+
 # ejecutamos en segundo plano
 $strace_command &
 
 echo "Comando ejecutandose en segundo plano."
 echo "Trace file: $trace_file"
+echo "Commando: $strace_command"
