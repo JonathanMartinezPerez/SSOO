@@ -21,6 +21,7 @@ attach_program=""
 program=""
 args=()
 consult=""
+kill_procesos=""
 while [ "$#" -gt 0 ]; do
     case "$1" in
         -sto)
@@ -40,6 +41,9 @@ while [ "$#" -gt 0 ]; do
             ;;
         -vall)
             consult="all"
+            ;;
+        -k | -kill)
+            kill_procesos="yes"
             ;;
         *)
             if [ -z "$program" ]; then
@@ -96,6 +100,37 @@ elif [ "$consult" == "all" ]; then
     else
         echo "No se encontraron traces para $program"
     fi
+elif [ "$consult" == "" ]; then
+    echo "Procesos en ejecución del usuario $USER:"
+    # Listar los procesos del usuario
+    ps -u "$USER" -o pid,ppid,user,comm,start --sort=start
+    # Obtener información de trazado (tracer) si está presente
+    for pid in $(ps -u "$USER" -o pid --no-headers); do
+        if [ -d "/proc/$pid" ]; then
+            tracer_pid=$(awk '/TracerPid/ {print $2}' /proc/$pid/status 2>/dev/null)
+            if [ -n "$tracer_pid" ] && [ "$tracer_pid" -ne 0 ]; then
+                tracer_name=$(ps -o comm= -p $tracer_pid)
+                echo "PID: $pid, Tracee: $(cat /proc/$pid/comm), Tracer PID: $tracer_pid, Tracer: $tracer_name"
+            fi
+        fi
+    done
+    exit 0
+fi
+
+if [ "$kill_processes" == "true" ]; then
+    # Obtener la lista de PIDs de procesos del usuario
+    user_processes=$(ps -u "$USER" -o pid --no-headers)
+
+    for pid in $user_processes; do
+        if [ -d "/proc/$pid" ]; then
+            tracer_pid=$(awk '/TracerPid/ {print $2}' /proc/$pid/status 2>/dev/null)
+            if [ "$tracer_pid" -ne 0 ]; then
+                echo "Terminando proceso PID: $pid y proceso trazador PID: $tracer_pid"
+                kill -9 "$pid" "$tracer_pid"
+            fi
+        fi
+    done
+    exit 0
 fi
 
 # ejecutamos en segundo plano
