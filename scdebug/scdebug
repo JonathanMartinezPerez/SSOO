@@ -17,7 +17,7 @@ function create_dir() {
 }
 
 strace_options=""
-attach_program=""
+programs_to_attach=()
 program=""
 args=()
 consult=""
@@ -31,7 +31,11 @@ while [ "$#" -gt 0 ]; do
 
         -nattch)
             shift
-            attach_program="$1"
+            # Almacenar todos los programas a los que se hará attach en la lista.
+            while [ -n "$1" ] && [ "$1" != "-"* ]; do
+                programs_to_attach+=("$1")
+                shift
+            done
             ;;
         -h)
             usage
@@ -66,16 +70,24 @@ trace_file="$trace_dir/trace_$uuid.txt"
 # se crea el directorio si no existe
 create_dir "$trace_dir"
 
-# Si se hace el attach a un programa, se busca el mas reciente
-if [ -n "$attach_program" ]; then
-    pid=$(pgrep -n "$attach_program")
-    if [ -z "$pid" ]; then
-        echo "No running process found with name: $attach_program"
-        exit 1
-    fi
-    strace_command="strace $strace_options -p $pid -o $trace_file"
-else
-    strace_command="strace $strace_options -o $trace_file $program ${args[@]}"
+# Si la opción -nattch se utilizó con nombres de programas, hacer attach a los más recientes.
+if [ "${#programs_to_attach[@]}" -gt 0 ]; then
+    for program_to_attach in "${programs_to_attach[@]}"; do
+        pid=$(pgrep -n "$program_to_attach")
+        if [ -z "$pid" ]; then
+            echo "No se encontró ningún proceso en ejecución con el nombre: $program_to_attach"
+        else
+            # Generar un nuevo identificador único para los archivos de traza.
+            uuid=$(uuidgen)
+            trace_file="$trace_dir/trace_${program_to_attach}_$uuid.txt"
+            create_dir "$trace_dir"
+            strace_command="strace $strace_options -p $pid -o $trace_file"
+            $strace_command &
+            echo "Haciendo attach a $program_to_attach (PID: $pid) en segundo plano."
+            echo "Archivo de traza: $trace_file"
+            echo "Comando: $strace_command"
+        fi
+    done
 fi
 
 if [ "$consult" == "unic" ]; then
@@ -114,7 +126,6 @@ elif [ "$consult" == "" ]; then
             fi
         fi
     done
-    exit 0
 fi
 
 if [ "$kill_processes" == "true" ]; then
