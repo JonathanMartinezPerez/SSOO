@@ -2,10 +2,13 @@
 
 # funcion usage para mostrar como se debe usar el prgrama
 function usage() {
-    echo "Usage: scdebug [-h] [-sto arg] [-v | -vall] [-nattch progtoattach] [prog [arg1 ...]]"
+    echo "Usage: scdebug [-h] [-sto args] [-v | -vall] [-nattch progtoattach] [-pattch pidstoattch] [prog [arg1 ...]]"
     echo "-h         Muestra esta salida de texto para ayudar."
     echo "-sto arg   Strace options con mas argumentos."
-    echo "-nattch progtoattach   Hace un attach al programa indicado."
+    echo "-nattch    progtoattach   Hace un attach al programa indicado."
+    echo "-pattch    pidstoattch    Hace un attach al proceso indicado."
+    echo "-v         Volcar el archivo mas reciente de los archivos de depuración en la salida estándar."
+    echo "-vall      Volcar la información de todos los archivos de depuración en la salida estándar."
     exit 0
 }
 
@@ -91,7 +94,6 @@ if [ "${#programs_to_attach[@]}" -gt 0 ]; then
             create_dir ".scdebug/$program_to_attach"
             trace_file=".scdebug/$program_to_attach/trace_{$program_to_attach}_$uuid.txt"
             strace_command="strace $strace_options -p $pid -o $trace_file"
-            $strace_command &
             echo "Haciendo attach a $program_to_attach (PID: $pid) en segundo plano."
             echo "Archivo de traza: $trace_file"
             echo "Comando: $strace_command"
@@ -109,7 +111,6 @@ if [ "${#pids_to_attach[@]}" -gt 0 ]; then
             create_dir ".scdebug/$program_name"
             trace_file=".scdebug/$program_name/trace_${program_name}_$uuid.txt"
             strace_command="strace $strace_options -p $pid_to_attach -o $trace_file"
-            $strace_command &
             echo "Haciendo attach al proceso $program_name (PID: $pid_to_attach) en segundo plano."
             echo "Archivo de traza: $trace_file"
             echo "Comando: $strace_command"
@@ -128,7 +129,9 @@ if [ "$consult" == "all" ]; then
             echo "=============== COMANDO: $program ==============================================="
             echo "=============== ARCHIVO DE TRAZA: $tracef ========================================"
             echo "=============== HORA: $(stat -c %y "$trace_dir/$tracef")=============="
-            cat "$trace_dir/$tracef" >> "$trace_file"
+            file_volcado=".scdebug/$program/trace_volcado_$uuid.txt"
+            echo "Archivo de volcado: $file_volcado"
+            cat "$trace_dir/$tracef" >> "$file_volcado"
         done
     else
         echo "No se encontraron trazas para ningún programa."
@@ -137,10 +140,12 @@ elif [ "$consult" == "unic" ]; then
     # Volcar información del último programa en el directorio de trazas.
     last_tracef=$(ls -t $trace_dir | head -n 1)
     if [ -n "$last_tracef" ]; then
-        echo "=============== COMANDO: $program ==============================================="
+        echo "=============== COMANDO: $program ===============================================" 
         echo "=============== ARCHIVO DE TRAZA: $last_tracef ========================================"
         echo "=============== HORA: $(stat -c %y "$trace_dir/$last_tracef")=============="
-        cat "$trace_dir/$last_tracef" >> "$trace_file"
+        file_volcado=".scdebug/$program/trace_volcado_$uuid.txt"
+        echo "$file_volcado"
+        cat "$trace_dir/$last_tracef" >> "$file_volcado"
     else
         echo "No se encontraron trazas para ningún programa."
     fi
@@ -177,7 +182,7 @@ if [ "$kill_processes" == "true" ]; then
 fi
 
 
-if [ "$strace_options" != "" ]; then
+if [ "$strace_options" != "" ] && [ "${#programs_to_attach[@]}" -eq 0 ] && [ "${#pids_to_attach[@]}" -eq 0 ]; then
     strace_command="strace $strace_options -o $trace_file $program ${args[@]}"
 else
     strace_command="strace -o $trace_file $program ${args[@]}"
