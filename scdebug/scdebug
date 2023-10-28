@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 # funcion usage para mostrar como se debe usar el prgrama
@@ -18,6 +19,28 @@ function create_dir() {
         mkdir -p "$1"
     fi
 }
+
+launch_strace() {
+    pid_or_program="$1"
+    trace_file="$2"
+    strace_options="$3"  # Nueva variable para opciones adicionales de strace
+
+    # Comprobar si pid_or_program es un número (PID) o un programa
+    if [[ "$pid_or_program" =~ ^[0-9]+$ ]]; then
+        strace -p "$pid_or_program" $strace_options -o "$trace_file" || {
+            local exit_code="$?"
+            echo "Error: strace exited with code $exit_code while tracing PID $pid_or_program" 1>&2
+            echo "Error: strace exited with code $exit_code while tracing PID $pid_or_program" >> "$trace_file"
+        }
+    else
+        strace $strace_options -o "$trace_file" "$pid_or_program" || {
+            local exit_code="$?"
+            echo "Error: strace exited with code $exit_code while tracing program $pid_or_program" 1>&2
+            echo "Error: strace exited with code $exit_code while tracing program $pid_or_program" >> "$trace_file"
+        }
+    fi
+}
+
 
 strace_options=""
 programs_to_attach=()
@@ -79,6 +102,11 @@ uuid=$(uuidgen)
 trace_dir=".scdebug/$program"
 trace_file="$trace_dir/trace_$uuid.txt"
 
+# Definir un archivo de log para redirigir la salida estándar y de error
+log_file=".scdebug/$program/trace_log_$uuid.txt"
+# Redirigir la salida estándar y de error al archivo de log
+exec > >(tee -a "$log_file") 2>&1
+
 # se crea el directorio si no existe
 create_dir "$trace_dir"
 
@@ -93,7 +121,7 @@ if [ "${#programs_to_attach[@]}" -gt 0 ]; then
             uuid=$(uuidgen)
             create_dir ".scdebug/$program_to_attach"
             trace_file=".scdebug/$program_to_attach/trace_{$program_to_attach}_$uuid.txt"
-            strace_command="strace $strace_options -p $pid -o $trace_file"
+            launch_strace "$pid_to_attach" "$trace_file" "$strace_options" &
             echo "Haciendo attach a $program_to_attach (PID: $pid) en segundo plano."
             echo "Archivo de traza: $trace_file"
             echo "Comando: $strace_command"
@@ -110,7 +138,7 @@ if [ "${#pids_to_attach[@]}" -gt 0 ]; then
             uuid=$(uuidgen)
             create_dir ".scdebug/$program_name"
             trace_file=".scdebug/$program_name/trace_${program_name}_$uuid.txt"
-            strace_command="strace $strace_options -p $pid_to_attach -o $trace_file"
+            launch_strace "$pid_to_attach" "$trace_file" "$strace_options" &
             echo "Haciendo attach al proceso $program_name (PID: $pid_to_attach) en segundo plano."
             echo "Archivo de traza: $trace_file"
             echo "Comando: $strace_command"
@@ -184,18 +212,18 @@ fi
 
 if [ "$strace_options" != "" ] && [ "${#programs_to_attach[@]}" -eq 0 ] && [ "${#pids_to_attach[@]}" -eq 0 ]; then
     strace_command="strace $strace_options -o $trace_file $program ${args[@]}"
+    echo "Comando ejecutandose en segundo plano."
+    echo "Trace file: $trace_file"
+    echo "Commando: $strace_command"
+    # ejecutamos en segundo plano
+    $strace_command &
 else
     strace_command="strace -o $trace_file $program ${args[@]}"
+    echo "Comando ejecutandose en segundo plano."
+    echo "Trace file: $trace_file"
+    echo "Commando: $strace_command"
+    # ejecutamos en segundo plano
+    $strace_command &
 fi 
-
-# ejecutamos en segundo plano
-$strace_command &
-
-echo "Comando ejecutandose en segundo plano."
-echo "Trace file: $trace_file"
-echo "Commando: $strace_command"
-
-
-
 
 

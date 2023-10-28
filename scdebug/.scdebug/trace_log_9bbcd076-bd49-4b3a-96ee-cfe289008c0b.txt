@@ -1,0 +1,28 @@
+No se encontró ningún proceso en ejecución con el PID: 87
+Haciendo attach al proceso node (PID: 120) en segundo plano.
+Archivo de traza: .scdebug/node/trace_node_dad191bf-f913-4e2e-9f15-8f281ef00383.txt
+Comando: 
+Procesos en ejecución del usuario johnny:
+strace: Could not attach to process. If your uid matches the uid of the target process, check the setting of /proc/sys/kernel/yama/ptrace_scope, or try again as the root user. For more details, see /etc/sysctl.d/10-ptrace.conf: Operation not permitted
+strace: attach: ptrace(PTRACE_ATTACH, 120): Operation not permitted
+Error: strace exited with code 1 while tracing PID 120
+  PID  PPID USER     COMMAND          STARTED
+   11    10 johnny   sh              00:17:35
+   12    11 johnny   sh              00:17:35
+   17    12 johnny   sh              00:17:35
+   21    17 johnny   node            00:17:35
+   33    32 johnny   node            00:17:35
+   41    40 johnny   node            00:17:36
+   48    21 johnny   node            00:17:36
+   55    21 johnny   node            00:17:36
+  110    21 johnny   node            00:17:38
+  155    55 johnny   bash            00:17:45
+  777   155 johnny   scdebug         00:23:50
+  779   777 johnny   scdebug         00:23:50
+  781   779 johnny   tee             00:23:50
+  785   777 johnny   ps              00:23:50
+Comando ejecutandose en segundo plano.
+Trace file: .scdebug/node/trace_node_dad191bf-f913-4e2e-9f15-8f281ef00383.txt
+Commando: strace -o .scdebug/node/trace_node_dad191bf-f913-4e2e-9f15-8f281ef00383.txt  
+strace: must have PROG [ARGS] or -p PID
+Try 'strace -h' for more information.
