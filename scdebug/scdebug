@@ -18,6 +18,7 @@ function create_dir() {
 
 strace_options=""
 programs_to_attach=()
+pids_to_attach=()
 program=""
 args=()
 consult=""
@@ -34,6 +35,14 @@ while [ "$#" -gt 0 ]; do
             # Almacenar todos los programas a los que se hará attach en la lista.
             while [ -n "$1" ] && [ "$1" != "-"* ]; do
                 programs_to_attach+=("$1")
+                shift
+            done
+            ;;
+        -pattch)
+            shift
+            # Almacenar todos los PIDs de procesos a los que se hará attach en la lista.
+            while [ -n "$1" ] && [ "$1" != "-"* ]; do
+                pids_to_attach+=("$1")
                 shift
             done
             ;;
@@ -79,8 +88,8 @@ if [ "${#programs_to_attach[@]}" -gt 0 ]; then
         else
             # Generar un nuevo identificador único para los archivos de traza.
             uuid=$(uuidgen)
-            trace_file="$trace_dir/trace_${program_to_attach}_$uuid.txt"
-            create_dir "$trace_dir"
+            create_dir ".scdebug/$program_to_attach"
+            trace_file=".scdebug/$program_to_attach/trace_{$program_to_attach}_$uuid.txt"
             strace_command="strace $strace_options -p $pid -o $trace_file"
             $strace_command &
             echo "Haciendo attach a $program_to_attach (PID: $pid) en segundo plano."
@@ -90,27 +99,50 @@ if [ "${#programs_to_attach[@]}" -gt 0 ]; then
     done
 fi
 
-if [ "$consult" == "unic" ]; then
-    last_tracef=$(ls -t $trace_dir | head -n 1)
-    if [ -n $last_tracef ]; then
-        echo "=============== COMMAND: $program ==============================================="
-        echo "=============== TRACE FILE: $last_tracef ========================================"
-        echo "=============== TIME: $(stat -c %y "$trace_dir/$latest_trace_file")=============="
- 
-    else
-        echo "No se encontraron traces para $program"
-    fi
+# Si la opción -pattch se utilizó con PIDs, hacer attach a los procesos y obtener los nombres.
+if [ "${#pids_to_attach[@]}" -gt 0 ]; then
+    for pid_to_attach in "${pids_to_attach[@]}"; do
+        if [ -d "/proc/$pid_to_attach" ]; then
+            program_name=$(cat "/proc/$pid_to_attach/comm")
+            # Generar un nuevo identificador único para los archivos de traza.
+            uuid=$(uuidgen)
+            create_dir ".scdebug/$program_name"
+            trace_file=".scdebug/$program_name/trace_${program_name}_$uuid.txt"
+            strace_command="strace $strace_options -p $pid_to_attach -o $trace_file"
+            $strace_command &
+            echo "Haciendo attach al proceso $program_name (PID: $pid_to_attach) en segundo plano."
+            echo "Archivo de traza: $trace_file"
+            echo "Comando: $strace_command"
+        else
+            echo "No se encontró ningún proceso en ejecución con el PID: $pid_to_attach"
+        fi
+    done
+fi
 
-elif [ "$consult" == "all" ]; then
+# Si la opción -v o -vall se utilizó, volcar la información de los archivos de depuración en la salida estándar.
+if [ "$consult" == "all" ]; then
+    # Volcar información de todos los programas en el directorio de trazas.
     tracefiles=$(ls -t $trace_dir)
     if [ -n "$tracefiles" ]; then
         for tracef in $tracefiles; do
-            echo "=============== COMMAND: $program ==============================================="
-            echo "=============== TRACE FILE: $tracef ========================================"
-            echo "=============== TIME: $(stat -c %y "$trace_dir/$tracef")=============="
+            echo "=============== COMANDO: $program ==============================================="
+            echo "=============== ARCHIVO DE TRAZA: $tracef ========================================"
+            echo "=============== HORA: $(stat -c %y "$trace_dir/$tracef")=============="
+            cat "$trace_dir/$tracef" >> "$trace_file"
         done
     else
-        echo "No se encontraron traces para $program"
+        echo "No se encontraron trazas para ningún programa."
+    fi
+elif [ "$consult" == "unic" ]; then
+    # Volcar información del último programa en el directorio de trazas.
+    last_tracef=$(ls -t $trace_dir | head -n 1)
+    if [ -n "$last_tracef" ]; then
+        echo "=============== COMANDO: $program ==============================================="
+        echo "=============== ARCHIVO DE TRAZA: $last_tracef ========================================"
+        echo "=============== HORA: $(stat -c %y "$trace_dir/$last_tracef")=============="
+        cat "$trace_dir/$last_tracef" >> "$trace_file"
+    else
+        echo "No se encontraron trazas para ningún programa."
     fi
 elif [ "$consult" == "" ]; then
     echo "Procesos en ejecución del usuario $USER:"
@@ -144,9 +176,21 @@ if [ "$kill_processes" == "true" ]; then
     exit 0
 fi
 
+
+if [ "$strace_options" != "" ]; then
+    strace_command="strace $strace_options -o $trace_file $program ${args[@]}"
+else
+    strace_command="strace -o $trace_file $program ${args[@]}"
+fi 
+
 # ejecutamos en segundo plano
 $strace_command &
 
 echo "Comando ejecutandose en segundo plano."
 echo "Trace file: $trace_file"
 echo "Commando: $strace_command"
+
+
+
+
+

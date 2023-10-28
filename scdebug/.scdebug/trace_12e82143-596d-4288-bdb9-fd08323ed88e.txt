@@ -1,3 +1,0 @@
-restart_syscall(<... resuming interrupted read ...>) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
---- SIGHUP {si_signo=SIGHUP, si_code=SI_USER, si_pid=252, si_uid=1000} ---
-+++ killed by SIGHUP +++
