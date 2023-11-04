@@ -20,6 +20,25 @@ function create_dir() {
     fi
 }
 
+function killproc() {
+    # Obtener la lista de PIDs de procesos del usuario
+    user_processes=$(ps -u "$USER" -o pid --no-headers)
+    processes_killed=false
+    for pid in $user_processes; do
+        if [ -d "/proc/$pid" ]; then
+            tracer_pid=$(awk '/TracerPid/ {print $2}' /proc/$pid/status 2>/dev/null)
+            if [ "$tracer_pid" -ne 0 ]; then
+                echo "Terminando proceso PID: $pid y proceso trazador PID: $tracer_pid"
+                processes_killed=true
+                kill -9 "$pid" "$tracer_pid"
+            fi
+        fi
+    done
+    if [ "$processes_killed" == false ]; then
+            echo "no se encontro ningun procesos al que matar"
+    fi
+}
+
 launch_strace() {
     pid_or_program="$1"
     trace_file="$2"
@@ -83,6 +102,7 @@ while [ "$#" -gt 0 ]; do
             ;;
         -k | -kill)
             kill_procesos="yes"
+            killproc
             ;;
         *)
             if [ -z "$program" ]; then
@@ -193,37 +213,21 @@ elif [ "$consult" == "" ]; then
     done
 fi
 
-if [ "$kill_processes" == "true" ]; then
-    # Obtener la lista de PIDs de procesos del usuario
-    user_processes=$(ps -u "$USER" -o pid --no-headers)
-
-    for pid in $user_processes; do
-        if [ -d "/proc/$pid" ]; then
-            tracer_pid=$(awk '/TracerPid/ {print $2}' /proc/$pid/status 2>/dev/null)
-            if [ "$tracer_pid" -ne 0 ]; then
-                echo "Terminando proceso PID: $pid y proceso trazador PID: $tracer_pid"
-                kill -9 "$pid" "$tracer_pid"
-            fi
-        fi
-    done
-    exit 0
-fi
-
-
 if [ "$strace_options" != "" ] && [ "${#programs_to_attach[@]}" -eq 0 ] && [ "${#pids_to_attach[@]}" -eq 0 ]; then
     strace_command="strace $strace_options -o $trace_file $program ${args[@]}"
-    echo "Comando ejecutandose en segundo plano."
+    echo "Comando ejecutándose en segundo plano."
     echo "Trace file: $trace_file"
-    echo "Commando: $strace_command"
-    # ejecutamos en segundo plano
-    $strace_command &
+    echo "Comando: $strace_command"
+    # Ejecutamos en segundo plano y redirigimos errores estándar a /dev/null
+    $strace_command 2>/dev/null &
 else
     strace_command="strace -o $trace_file $program ${args[@]}"
-    echo "Comando ejecutandose en segundo plano."
+    echo "Comando ejecutándose en segundo plano."
     echo "Trace file: $trace_file"
-    echo "Commando: $strace_command"
-    # ejecutamos en segundo plano
-    $strace_command &
-fi 
+    echo "Comando: $strace_command"
+    # Ejecutamos en segundo plano y redirigimos errores estándar a /dev/null
+    $strace_command 2>/dev/null &
+fi
+
 
 

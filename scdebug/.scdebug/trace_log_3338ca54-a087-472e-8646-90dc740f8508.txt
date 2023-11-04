@@ -1,0 +1,35 @@
+Haciendo attach al proceso node (PID: 48) en segundo plano.
+Archivo de traza: .scdebug/node/trace_node_2a728c56-2000-418b-96e2-6e5030e62ad9.txt
+Comando: 
+strace: Could not attach to process. If your uid matches the uid of the target process, check the setting of /proc/sys/kernel/yama/ptrace_scope, or try again as the root user. For more details, see /etc/sysctl.d/10-ptrace.conf: Operation not permitted
+strace: attach: ptrace(PTRACE_ATTACH, 48): Operation not permitted
+Error: strace exited with code 1 while tracing PID 48
+Haciendo attach al proceso node (PID: 55) en segundo plano.
+Archivo de traza: .scdebug/node/trace_node_df7f98e2-87b8-4125-a199-843241a65277.txt
+Comando: 
+Procesos en ejecución del usuario johnny:
+  PID  PPID USER     COMMAND          STARTED
+   11    10 johnny   sh              00:31:04
+   12    11 johnny   sh              00:31:04
+   17    12 johnny   sh              00:31:04
+   21    17 johnny   node            00:31:04
+   33    32 johnny   node            00:31:05
+   41    40 johnny   node            00:31:07
+   47    21 johnny   node            00:31:07
+   65    21 johnny   node            00:31:08
+   87    21 johnny   node            00:31:08
+  107    47 johnny   bash            00:31:12
+  200   107 johnny   bash            00:31:35
+  202   200 johnny   bash            00:31:35
+  203   202 johnny   tee             00:31:35
+  212   200 johnny   bash            00:31:35
+  214   200 johnny   ps              00:31:35
+  213   212 johnny   strace          00:31:35
+strace: Could not attach to process. If your uid matches the uid of the target process, check the setting of /proc/sys/kernel/yama/ptrace_scope, or try again as the root user. For more details, see /etc/sysctl.d/10-ptrace.conf: Operation not permitted
+strace: attach: ptrace(PTRACE_ATTACH, 55): Operation not permitted
+Error: strace exited with code 1 while tracing PID 55
+Comando ejecutándose en segundo plano.
+Trace file: .scdebug/node/trace_node_df7f98e2-87b8-4125-a199-843241a65277.txt
+Comando: strace -o .scdebug/node/trace_node_df7f98e2-87b8-4125-a199-843241a65277.txt  
+strace: must have PROG [ARGS] or -p PID
+Try 'strace -h' for more information.

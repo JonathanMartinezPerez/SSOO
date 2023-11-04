@@ -1,0 +1,19 @@
+Procesos en ejecución del usuario johnny:
+  PID  PPID USER     COMMAND          STARTED
+   11    10 johnny   sh              17:46:53
+   12    11 johnny   sh              17:46:53
+   17    12 johnny   sh              17:46:53
+   21    17 johnny   node            17:46:53
+  140   139 johnny   node            17:47:09
+  148   147 johnny   node            17:47:09
+  154    21 johnny   node            17:47:09
+  166    21 johnny   node            17:47:10
+  196    21 johnny   node            17:47:13
+  219   196 johnny   bash            17:47:14
+ 1552   219 johnny   bash            17:56:48
+ 1577  1552 johnny   bash            17:56:49
+ 1578  1552 johnny   ps              17:56:49
+ 1579  1577 johnny   tee             17:56:49
+Comando ejecutándose en segundo plano.
+Trace file: .scdebug//trace_a2cadfdb-6ed7-4e19-b681-1f5ef6e108c1.txt
+Comando: strace -o .scdebug//trace_a2cadfdb-6ed7-4e19-b681-1f5ef6e108c1.txt  
