@@ -1,0 +1,23 @@
+Procesos en ejecución del usuario johnny:
+  PID  PPID USER     COMMAND          STARTED
+   13    12 johnny   sh              15:47:45
+   14    13 johnny   sh              15:47:46
+   19    14 johnny   sh              15:47:46
+   23    19 johnny   node            15:47:46
+  112    23 johnny   node            15:47:48
+ 3219   112 johnny   bash            16:10:10
+ 4480  4479 johnny   node            16:20:15
+ 4489  4488 johnny   node            16:20:15
+ 4496    23 johnny   node            16:20:15
+ 4507    23 johnny   node            16:20:15
+ 7050  3219 johnny   sleep           16:37:54
+ 7250  3219 johnny   sleep           16:38:14
+ 7515  3219 johnny   sleep           16:39:40
+ 7629  3219 johnny   bash            16:39:59
+ 7631  7629 johnny   bash            16:39:59
+ 7632  7631 johnny   tee             16:39:59
+ 7633  7629 johnny   ps              16:39:59
+Haciendo attach al proceso sleep (PID: 7515) en segundo plano.
+Archivo de traza: .scdebug/sleep/trace_sleep_42c7c913-1138-466e-8087-a8e09c5d099a.txt
+strace: Can't stat '7515': No such file or directory
+Error: strace exited with code 1 while tracing program .scdebug/sleep/trace_sleep_42c7c913-1138-466e-8087-a8e09c5d099a.txt

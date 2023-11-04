@@ -130,6 +130,23 @@ exec > >(tee -a "$log_file") 2>&1
 # se crea el directorio si no existe
 create_dir "$trace_dir"
 
+# Si no se incluyen ni -v ni -vall, mostrar los procesos en ejecución del usuario.
+if [ "$consult" == "" ]; then
+    echo "Procesos en ejecución del usuario $USER:"
+    # Listar los procesos del usuario
+    ps -u "$USER" -o pid,ppid,user,comm,start --sort=start
+    # Obtener información de trazado (tracer) si está presente
+    for pid in $(ps -u "$USER" -o pid --no-headers); do
+        if [ -d "/proc/$pid" ]; then
+            tracer_pid=$(awk '/TracerPid/ {print $2}' /proc/$pid/status 2>/dev/null)
+            if [ -n "$tracer_pid" ] && [ "$tracer_pid" -ne 0 ]; then
+                tracer_name=$(ps -o comm= -p $tracer_pid)
+                echo "PID: $pid, Tracee: $(cat /proc/$pid/comm), Tracer PID: $tracer_pid, Tracer: $tracer_name"
+            fi
+        fi
+    done
+fi
+
 # Si la opción -nattch se utilizó con nombres de programas, hacer attach a los más recientes.
 if [ "${#programs_to_attach[@]}" -gt 0 ]; then
     for program_to_attach in "${programs_to_attach[@]}"; do
@@ -141,10 +158,9 @@ if [ "${#programs_to_attach[@]}" -gt 0 ]; then
             uuid=$(uuidgen)
             create_dir ".scdebug/$program_to_attach"
             trace_file=".scdebug/$program_to_attach/trace_{$program_to_attach}_$uuid.txt"
-            launch_strace "$pid_to_attach" "$trace_file" "$strace_options" &
+            launch_strace "$program_to_attach" "$trace_file" "$strace_options" &
             echo "Haciendo attach a $program_to_attach (PID: $pid) en segundo plano."
             echo "Archivo de traza: $trace_file"
-            echo "Comando: $strace_command"
         fi
     done
 fi
@@ -161,7 +177,6 @@ if [ "${#pids_to_attach[@]}" -gt 0 ]; then
             launch_strace "$pid_to_attach" "$trace_file" "$strace_options" &
             echo "Haciendo attach al proceso $program_name (PID: $pid_to_attach) en segundo plano."
             echo "Archivo de traza: $trace_file"
-            echo "Comando: $strace_command"
         else
             echo "No se encontró ningún proceso en ejecución con el PID: $pid_to_attach"
         fi
@@ -197,37 +212,19 @@ elif [ "$consult" == "unic" ]; then
     else
         echo "No se encontraron trazas para ningún programa."
     fi
-elif [ "$consult" == "" ]; then
-    echo "Procesos en ejecución del usuario $USER:"
-    # Listar los procesos del usuario
-    ps -u "$USER" -o pid,ppid,user,comm,start --sort=start
-    # Obtener información de trazado (tracer) si está presente
-    for pid in $(ps -u "$USER" -o pid --no-headers); do
-        if [ -d "/proc/$pid" ]; then
-            tracer_pid=$(awk '/TracerPid/ {print $2}' /proc/$pid/status 2>/dev/null)
-            if [ -n "$tracer_pid" ] && [ "$tracer_pid" -ne 0 ]; then
-                tracer_name=$(ps -o comm= -p $tracer_pid)
-                echo "PID: $pid, Tracee: $(cat /proc/$pid/comm), Tracer PID: $tracer_pid, Tracer: $tracer_name"
-            fi
-        fi
-    done
 fi
 
 if [ "$strace_options" != "" ] && [ "${#programs_to_attach[@]}" -eq 0 ] && [ "${#pids_to_attach[@]}" -eq 0 ]; then
     strace_command="strace $strace_options -o $trace_file $program ${args[@]}"
     echo "Comando ejecutándose en segundo plano."
     echo "Trace file: $trace_file"
-    echo "Comando: $strace_command"
     # Ejecutamos en segundo plano y redirigimos errores estándar a /dev/null
     $strace_command 2>/dev/null &
-else
+elif [ "$strace_options" == "" ] && [ "${#programs_to_attach[@]}" -eq 0 ] && [ "${#pids_to_attach[@]}" -eq 0 ]; then
     strace_command="strace -o $trace_file $program ${args[@]}"
     echo "Comando ejecutándose en segundo plano."
     echo "Trace file: $trace_file"
-    echo "Comando: $strace_command"
     # Ejecutamos en segundo plano y redirigimos errores estándar a /dev/null
     $strace_command 2>/dev/null &
 fi
-
-
 

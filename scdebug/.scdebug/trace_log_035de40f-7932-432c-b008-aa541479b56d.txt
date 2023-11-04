@@ -1,0 +1,21 @@
+Procesos en ejecución del usuario johnny:
+  PID  PPID USER     COMMAND          STARTED
+   13    12 johnny   sh              15:47:45
+   14    13 johnny   sh              15:47:46
+   19    14 johnny   sh              15:47:46
+   23    19 johnny   node            15:47:46
+  112    23 johnny   node            15:47:48
+ 3219   112 johnny   bash            16:10:10
+ 4480  4479 johnny   node            16:20:15
+ 4489  4488 johnny   node            16:20:15
+ 4496    23 johnny   node            16:20:15
+ 4507    23 johnny   node            16:20:15
+ 5040  3219 johnny   sleep           16:24:10
+ 5179  3219 johnny   bash            16:24:31
+ 5181  5179 johnny   bash            16:24:31
+ 5182  5181 johnny   tee             16:24:31
+ 5183  5179 johnny   ps              16:24:31
+Haciendo attach al proceso sleep (PID: 5040) en segundo plano.
+Archivo de traza: .scdebug/sleep/trace_sleep_a86c9dd5-4f59-4760-94f3-23008a7c8058.txt
+Comando: 
+strace: Process 5040 attached
