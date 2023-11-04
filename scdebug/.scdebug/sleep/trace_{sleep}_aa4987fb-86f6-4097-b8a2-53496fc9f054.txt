@@ -1,9 +1,0 @@
-% time     seconds  usecs/call     calls    errors syscall
------- ----------- ----------- --------- --------- ----------------
- 70.46    0.000799          22        36        19 openat
- 24.60    0.000279          16        17           newfstatat
-  4.94    0.000056          56         1         1 access
-  0.00    0.000000           0         1           execve
------- ----------- ----------- --------- --------- ----------------
-100.00    0.001134          20        55        20 total
-Error: strace exited with code 1 while tracing program sleep

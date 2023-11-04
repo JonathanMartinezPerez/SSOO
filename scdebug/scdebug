@@ -27,7 +27,7 @@ function killproc() {
     for pid in $user_processes; do
         if [ -d "/proc/$pid" ]; then
             tracer_pid=$(awk '/TracerPid/ {print $2}' /proc/$pid/status 2>/dev/null)
-            if [ "$tracer_pid" -ne 0 ]; then
+           if [[ "$tracer_pid" =~ ^[0-9]+$ ]] && [ "$tracer_pid" -ne 0 ]; then
                 echo "Terminando proceso PID: $pid y proceso trazador PID: $tracer_pid"
                 processes_killed=true
                 kill -9 "$pid" "$tracer_pid"
@@ -40,26 +40,25 @@ function killproc() {
 }
 
 launch_strace() {
-    pid_or_program="$1"
+    strace_options="$1"
     trace_file="$2"
-    strace_options="$3"  # Nueva variable para opciones adicionales de strace
+    pid_or_program="$3"
+    args="$4"  # Agregamos un cuarto argumento para los argumentos del programa
 
     # Comprobar si pid_or_program es un número (PID) o un programa
     if [[ "$pid_or_program" =~ ^[0-9]+$ ]]; then
-        strace -p "$pid_or_program" $strace_options -o "$trace_file" || {
-            local exit_code="$?"
-            echo "Error: strace exited with code $exit_code while tracing PID $pid_or_program" 1>&2
-            echo "Error: strace exited with code $exit_code while tracing PID $pid_or_program" >> "$trace_file"
-        }
+        strace_command="strace $strace_options -p $pid_or_program -o $trace_file"
     else
-        strace $strace_options -o "$trace_file" "$pid_or_program" || {
-            local exit_code="$?"
-            echo "Error: strace exited with code $exit_code while tracing program $pid_or_program" 1>&2
-            echo "Error: strace exited with code $exit_code while tracing program $pid_or_program" >> "$trace_file"
-        }
+        strace_command="strace $strace_options -o $trace_file $pid_or_program ${args[@]}"
     fi
-}
 
+    # Ejecutar el comando strace
+    $strace_command || {
+        local exit_code="$?"
+        echo "Error: strace exited with code $exit_code while tracing $pid_or_program" 1>&2
+        echo "Error: strace exited with code $exit_code while tracing $pid_or_program" >> "$trace_file"
+    }
+}
 
 strace_options=""
 programs_to_attach=()
@@ -123,7 +122,7 @@ trace_dir=".scdebug/$program"
 trace_file="$trace_dir/trace_$uuid.txt"
 
 # Definir un archivo de log para redirigir la salida estándar y de error
-log_file=".scdebug/$program/trace_log_$uuid.txt"
+log_file=".scdebug/trace_log_$uuid.txt"
 # Redirigir la salida estándar y de error al archivo de log
 exec > >(tee -a "$log_file") 2>&1
 
@@ -158,7 +157,7 @@ if [ "${#programs_to_attach[@]}" -gt 0 ]; then
             uuid=$(uuidgen)
             create_dir ".scdebug/$program_to_attach"
             trace_file=".scdebug/$program_to_attach/trace_{$program_to_attach}_$uuid.txt"
-            launch_strace "$program_to_attach" "$trace_file" "$strace_options" &
+            launch_strace "$strace_options" "$trace_file" "$pid" &
             echo "Haciendo attach a $program_to_attach (PID: $pid) en segundo plano."
             echo "Archivo de traza: $trace_file"
         fi
@@ -174,7 +173,7 @@ if [ "${#pids_to_attach[@]}" -gt 0 ]; then
             uuid=$(uuidgen)
             create_dir ".scdebug/$program_name"
             trace_file=".scdebug/$program_name/trace_${program_name}_$uuid.txt"
-            launch_strace "$pid_to_attach" "$trace_file" "$strace_options" &
+            launch_strace "$strace_options" "$trace_file" "$pid_to_attach" &
             echo "Haciendo attach al proceso $program_name (PID: $pid_to_attach) en segundo plano."
             echo "Archivo de traza: $trace_file"
         else
@@ -215,16 +214,12 @@ elif [ "$consult" == "unic" ]; then
 fi
 
 if [ "$strace_options" != "" ] && [ "${#programs_to_attach[@]}" -eq 0 ] && [ "${#pids_to_attach[@]}" -eq 0 ]; then
-    strace_command="strace $strace_options -o $trace_file $program ${args[@]}"
+    launch_strace "$strace_options" "$trace_file" "$program" "${args[@]}" &
     echo "Comando ejecutándose en segundo plano."
     echo "Trace file: $trace_file"
-    # Ejecutamos en segundo plano y redirigimos errores estándar a /dev/null
-    $strace_command 2>/dev/null &
 elif [ "$strace_options" == "" ] && [ "${#programs_to_attach[@]}" -eq 0 ] && [ "${#pids_to_attach[@]}" -eq 0 ]; then
-    strace_command="strace -o $trace_file $program ${args[@]}"
+    launch_strace "$strace_options" "$trace_file" "$program" "${args[@]}" &
     echo "Comando ejecutándose en segundo plano."
     echo "Trace file: $trace_file"
-    # Ejecutamos en segundo plano y redirigimos errores estándar a /dev/null
-    $strace_command 2>/dev/null &
 fi
 

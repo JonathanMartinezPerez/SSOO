@@ -1,0 +1,32 @@
+Procesos en ejecución del usuario johnny:
+  PID  PPID USER     COMMAND          STARTED
+   13    12 johnny   sh              15:47:45
+   14    13 johnny   sh              15:47:46
+   19    14 johnny   sh              15:47:46
+   23    19 johnny   node            15:47:46
+  112    23 johnny   node            15:47:48
+ 3219   112 johnny   bash            16:10:10
+ 4480  4479 johnny   node            16:20:15
+ 4489  4488 johnny   node            16:20:15
+ 4496    23 johnny   node            16:20:15
+ 4507    23 johnny   node            16:20:15
+ 7881  4496 johnny   node            16:40:18
+16888  3219 johnny   bash            17:25:16
+16890 16888 johnny   bash            17:25:16
+16891 16890 johnny   tee             17:25:16
+16892 16888 johnny   ps              17:25:16
+Comando ejecutándose en segundo plano.
+Trace file: .scdebug/ls/trace_4ec1f122-e4d4-4929-9f84-342176257ef0.txt
+total 80
+drwxr-xr-x  2 root root 28672 Nov  1 18:03 bin
+drwxr-xr-x  2 root root  4096 Apr 18  2022 games
+drwxr-xr-x 34 root root  4096 Oct  9 18:57 include
+drwxr-xr-x 62 root root  4096 Oct 14 00:11 lib
+drwxr-xr-x  2 root root  4096 Oct 25  2022 lib32
+drwxr-xr-x  2 root root  4096 Oct 25  2022 lib64
+drwxr-xr-x  7 root root  4096 Oct 25  2022 libexec
+drwxr-xr-x  2 root root  4096 Oct 25  2022 libx32
+drwxr-xr-x 10 root root  4096 Oct 25  2022 local
+drwxr-xr-x  2 root root 12288 Nov  1 18:03 sbin
+drwxr-xr-x 95 root root  4096 Oct 14 00:11 share
+drwxr-xr-x  3 root root  4096 Oct  9 18:57 src
