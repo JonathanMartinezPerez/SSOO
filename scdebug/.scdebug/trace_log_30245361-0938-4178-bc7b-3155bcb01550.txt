@@ -1,0 +1,19 @@
+=============== COMANDO: ls ===============================================
+=============== ARCHIVO DE TRAZA: trace_5d7f6bde-9bfd-4c0f-a461-d3f3e6e0ab84.txt ========================================
+=============== HORA: 2023-11-04 17:25:11.703574463 +0100==============
+.scdebug/ls/trace_volcado_30245361-0938-4178-bc7b-3155bcb01550.txt
+Comando ejecutándose en segundo plano.
+Trace file: .scdebug/ls/trace_30245361-0938-4178-bc7b-3155bcb01550.txt
+total 80
+drwxr-xr-x  2 root root 28672 Nov  1 18:03 bin
+drwxr-xr-x  2 root root  4096 Apr 18  2022 games
+drwxr-xr-x 34 root root  4096 Oct  9 18:57 include
+drwxr-xr-x 62 root root  4096 Oct 14 00:11 lib
+drwxr-xr-x  2 root root  4096 Oct 25  2022 lib32
+drwxr-xr-x  2 root root  4096 Oct 25  2022 lib64
+drwxr-xr-x  7 root root  4096 Oct 25  2022 libexec
+drwxr-xr-x  2 root root  4096 Oct 25  2022 libx32
+drwxr-xr-x 10 root root  4096 Oct 25  2022 local
+drwxr-xr-x  2 root root 12288 Nov  1 18:03 sbin
+drwxr-xr-x 95 root root  4096 Oct 14 00:11 share
+drwxr-xr-x  3 root root  4096 Oct  9 18:57 src

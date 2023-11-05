@@ -1,9 +1,10 @@
 
-#!/bin/bash
+#!./ptbash
 
 # funcion usage para mostrar como se debe usar el prgrama
 function usage() {
     echo "Usage: scdebug [-h] [-sto args] [-v | -vall] [-nattch progtoattach] [-pattch pidstoattch] [prog [arg1 ...]]"
+    echo "Another Usage: scdebug [-h] [-k] -S commName prog [arg...]"
     echo "-h         Muestra esta salida de texto para ayudar."
     echo "-sto arg   Strace options con mas argumentos."
     echo "-nattch    progtoattach   Hace un attach al programa indicado."
@@ -67,6 +68,8 @@ program=""
 args=()
 consult=""
 kill_procesos=""
+stop_signal=""
+commName=""
 while [ "$#" -gt 0 ]; do
     case "$1" in
         -sto)
@@ -92,6 +95,8 @@ while [ "$#" -gt 0 ]; do
             ;;
         -h)
             usage
+            shift
+            continue
             ;;
         -v)
             consult="unic"
@@ -102,6 +107,16 @@ while [ "$#" -gt 0 ]; do
         -k | -kill)
             kill_procesos="yes"
             killproc
+            shift
+            continue
+            ;;
+        -S) 
+            stop_signal="yes"
+            shift
+            commName="$1"  # Almacenar el nombre de comando
+            shift
+            program="$1"   # Almacenar el programa a ejecutar
+            shift
             ;;
         *)
             if [ -z "$program" ]; then
@@ -130,7 +145,7 @@ exec > >(tee -a "$log_file") 2>&1
 create_dir "$trace_dir"
 
 # Si no se incluyen ni -v ni -vall, mostrar los procesos en ejecución del usuario.
-if [ "$consult" == "" ]; then
+if [ "$consult" == "" ]  && [ "$stop_signal" != "yes" ]; then
     echo "Procesos en ejecución del usuario $USER:"
     # Listar los procesos del usuario
     ps -u "$USER" -o pid,ppid,user,comm,start --sort=start
@@ -217,9 +232,28 @@ if [ "$strace_options" != "" ] && [ "${#programs_to_attach[@]}" -eq 0 ] && [ "${
     launch_strace "$strace_options" "$trace_file" "$program" "${args[@]}" &
     echo "Comando ejecutándose en segundo plano."
     echo "Trace file: $trace_file"
-elif [ "$strace_options" == "" ] && [ "${#programs_to_attach[@]}" -eq 0 ] && [ "${#pids_to_attach[@]}" -eq 0 ]; then
+elif [ "$strace_options" == "" ] && [ "${#programs_to_attach[@]}" -eq 0 ] && [ "${#pids_to_attach[@]}" -eq 0 ] && [ "$stop_signal" != "yes" ]; then
     launch_strace "$strace_options" "$trace_file" "$program" "${args[@]}" &
     echo "Comando ejecutándose en segundo plano."
     echo "Trace file: $trace_file"
+fi
+
+if [ "$stop_signal" == "yes" ] && [ "${#programs_to_attach[@]}" -eq 0 ] && [ "${#pids_to_attach[@]}" -eq 0 ] && [ "$strace_options" == "" ] && [ "$consult" == "" ] ; then
+    # Verificar que se proporcionó el nombre de comando y al menos un programa a ejecutar
+    if [ -z "$commName" ]; then
+        echo "Error: Debes proporcionar un nombre de comando y un programa a ejecutar." >&2
+        usage
+    fi
+
+    # Forzar el nombre de comando
+    echo -n "traced_$commName" > /proc/$$/comm
+
+    # Detener el script actual
+    kill -SIGSTOP $$
+
+    # Ejecutar el programa especificado
+    LaunchProg=("$program" "${args[@]}")
+    echo "Ejecutando: ${LaunchProg[@]}"
+    exec "${LaunchProg[@]}"
 fi
 

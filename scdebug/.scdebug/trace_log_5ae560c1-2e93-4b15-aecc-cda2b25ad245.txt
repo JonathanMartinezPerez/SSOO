@@ -1,0 +1,31 @@
+Procesos en ejecución del usuario johnny:
+  PID  PPID USER     COMMAND          STARTED
+12881  3623 johnny   traced_myprogra 00:28:30
+12883 12881 johnny   bash            00:28:30
+12884 12883 johnny   tee             00:28:30
+12956  3623 johnny   traced_myprogra 00:28:40
+12958 12956 johnny   bash            00:28:40
+12959 12958 johnny   tee             00:28:40
+13019  3623 johnny   traced_myprogra 00:28:43
+13021 13019 johnny   bash            00:28:43
+13022 13021 johnny   tee             00:28:43
+13085  3623 johnny   bash            00:28:47
+13087 13085 johnny   bash            00:28:47
+13088 13087 johnny   tee             00:28:47
+13089 13085 johnny   ps              00:28:47
+ 3499  3498 johnny   sh              23:22:24
+ 3500  3499 johnny   sh              23:22:24
+ 3505  3500 johnny   sh              23:22:24
+ 3509  3505 johnny   node            23:22:24
+ 3522  3521 johnny   node            23:22:24
+ 3529  3509 johnny   node            23:22:24
+ 3559  3553 johnny   node            23:22:24
+ 3560  3509 johnny   node            23:22:24
+ 3579  3509 johnny   node            23:22:24
+ 3623  3529 johnny   bash            23:22:26
+ 4223  3579 johnny   cpptools        23:24:53
+Comando ejecutándose en segundo plano.
+Trace file: .scdebug//trace_5ae560c1-2e93-4b15-aecc-cda2b25ad245.txt
+strace: must have PROG [ARGS] or -p PID
+Try 'strace -h' for more information.
+Error: strace exited with code 1 while tracing 
