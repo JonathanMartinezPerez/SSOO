@@ -254,6 +254,6 @@ if [ "$stop_signal" == "yes" ] && [ "${#programs_to_attach[@]}" -eq 0 ] && [ "${
     # Ejecutar el programa especificado
     LaunchProg=("$program" "${args[@]}")
     echo "Ejecutando: ${LaunchProg[@]}"
-    exec "${LaunchProg[@]}"
+    exec "${LaunchProg[@]}" >> "$trace_file" 2>&1
 fi
 
