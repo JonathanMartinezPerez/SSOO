@@ -70,6 +70,8 @@ consult=""
 kill_procesos=""
 stop_signal=""
 commName=""
+monitoring=""
+invert=""
 while [ "$#" -gt 0 ]; do
     case "$1" in
         -sto)
@@ -115,10 +117,18 @@ while [ "$#" -gt 0 ]; do
             shift
             commName="$1"
             shift
-            sstrace="strace"
+            program="$1"
             shift
-            program="$1" 
-            shift
+            while [ -n "$1" ] && [ "$1" != "-"* ]; do
+                args+=("$1")
+                shift
+            done
+            ;;
+        -g | -ge | -gc)
+            monitoring="$1"
+            ;;
+        -inv)
+            invert="yes"
             ;;
         *)
             if [ -z "$program" ]; then
@@ -147,7 +157,7 @@ exec > >(tee -a "$log_file") 2>&1
 create_dir "$trace_dir"
 
 # Si no se incluyen ni -v ni -vall, mostrar los procesos en ejecución del usuario.
-if [ "$consult" == "" ]  && [ "$stop_signal" != "yes" ]; then
+if [ "$consult" == "" ]  && [ "$stop_signal" != "yes" ] && [ "$monitoring" == "" ]; then
     echo "Procesos en ejecución del usuario $USER:"
     # Listar los procesos del usuario
     ps -u "$USER" -o pid,ppid,user,comm,start --sort=start
@@ -234,7 +244,7 @@ if [ "$strace_options" != "" ] && [ "${#programs_to_attach[@]}" -eq 0 ] && [ "${
     launch_strace "$strace_options" "$trace_file" "$program" "${args[@]}" &
     echo "Comando ejecutándose en segundo plano."
     echo "Trace file: $trace_file"
-elif [ "$strace_options" == "" ] && [ "${#programs_to_attach[@]}" -eq 0 ] && [ "${#pids_to_attach[@]}" -eq 0 ] && [ "$kill_procesos" != "yes" ] && [ "$stop_signal" != "yes" ]; then
+elif [ "$strace_options" == "" ] && [ "${#programs_to_attach[@]}" -eq 0 ] && [ "${#pids_to_attach[@]}" -eq 0 ] && [ "$kill_procesos" != "yes" ] && [ "$stop_signal" != "yes" ] && [ "$monitoring" == "" ]; then
     launch_strace "$strace_options" "$trace_file" "$program" "${args[@]}" &
     echo "Comando ejecutándose en segundo plano."
     echo "Trace file: $trace_file"
@@ -249,12 +259,62 @@ if [ "$stop_signal" == "yes" ] && [ "${#programs_to_attach[@]}" -eq 0 ] && [ "${
 
     # Forzar el nombre de comando
     echo -n "traced_$commName" > /proc/$$/comm
-
+    echo "strace "$program" "${args[@]}""
     # Detener el script actual
     kill -SIGSTOP $$
 
     # Ejecutar el programa especificado
-    LaunchProg=("$sstrace" "$program" "${args[@]}")
+    LaunchProg=(strace "$program" "${args[@]}")
     echo "Ejecutando: ${LaunchProg[@]}"
     exec "${LaunchProg[@]}" >> "$trace_file" 2>&1
 fi
+
+# ...
+
+if [ "$monitoring" != "" ]; then
+    stopped_pids=($(ps -u "$USER" | awk '$NF ~ /^traced/ {print $1}'))
+    if [ ${#stopped_pids[@]} -eq 0 ]; then
+        echo "No se encontraron procesos detenidos con nombres que comienzan por 'traced_'."
+    fi
+
+    # Inicializar variables para la tabla de datos
+    data_table=""
+    max_time_column="Max-Time"
+    total_time_column="Total-Time"
+    calls_column="Calls"
+    errs_column="Errors"
+    sorted_column="Calls"
+    sort_order="asc"
+
+    if [ "$monitoring" == "-gc" ]; then
+        sorted_column="$calls_column"
+    elif [ "$monitoring" == "-ge" ]; then
+        sorted_column="$errs_column"
+    elif [ "$invert" == "yes" ]; then
+        sort_order="desc"
+    fi
+
+    # Realizar la monitorización de procesos para cada PID
+    for pid in "${stopped_pids[@]}"; do
+        # Llamada a strace en segundo plano para hacer el attach al PID
+        trace_dir=".scdebug/traced_$pid"
+        create_dir "$trace_dir"
+        trace_file="$trace_dir/trace_$(uuidgen).txt"
+        
+        strace_command="strace -c -p $pid -o >(tee -a $trace_file)"
+
+        # Iniciar strace en segundo plano
+        eval "$strace_command" &
+
+        # Hacer un sleep para dar tiempo a que strace complete el attach
+        sleep 0.1
+
+        # Activar la señal CONT en el proceso detenido
+        kill -SIGCONT "$pid"
+        
+    done
+
+
+fi
+
+
