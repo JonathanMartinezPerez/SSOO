@@ -269,13 +269,7 @@ if [ "$stop_signal" == "yes" ] && [ "${#programs_to_attach[@]}" -eq 0 ] && [ "${
     exec "${LaunchProg[@]}" >> "$trace_file" 2>&1
 fi
 
-
-
-
-
-
-
-
+# ...
 
 if [ "$monitoring" != "" ]; then
     stopped_pids=($(ps -u "$USER" | awk '$NF ~ /^traced/ {print $1}'))
@@ -306,7 +300,7 @@ if [ "$monitoring" != "" ]; then
         trace_dir=".scdebug/traced_$pid"
         create_dir "$trace_dir"
         trace_file="$trace_dir/trace_$(uuidgen).txt"
-        
+        # Comando strace para hacer la tabla de datos
         strace_command="strace -c -p $pid -o >(tee -a $trace_file)"
 
         # Iniciar strace en segundo plano
