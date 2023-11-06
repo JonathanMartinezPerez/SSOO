@@ -1,1 +1,0 @@
-Ejecutando: ./strace ls -la /usr/

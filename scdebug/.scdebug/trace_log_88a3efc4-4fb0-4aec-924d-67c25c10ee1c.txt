@@ -1,0 +1,20 @@
+Procesos en ejecución del usuario johnny:
+  PID  PPID USER     COMMAND          STARTED
+   11    10 johnny   sh              15:43:43
+   12    11 johnny   sh              15:43:43
+   17    12 johnny   sh              15:43:44
+   21    17 johnny   node            15:43:44
+   33    32 johnny   node            15:43:45
+   41    40 johnny   node            15:43:46
+   47    21 johnny   node            15:43:46
+   57    21 johnny   node            15:43:46
+  110    21 johnny   node            15:43:48
+  128    47 johnny   bash            15:43:51
+ 8304   128 johnny   bash            16:57:26
+ 8306  8304 johnny   bash            16:57:26
+ 8307  8304 johnny   ps              16:57:26
+ 8308  8306 johnny   tee             16:57:26
+Comando ejecutándose en segundo plano.
+Trace file: .scdebug/myprog/trace_88a3efc4-4fb0-4aec-924d-67c25c10ee1c.txt
+strace: Can't stat 'myprog': No such file or directory
+Error: strace exited with code 1 while tracing myprog
