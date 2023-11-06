@@ -1,0 +1,37 @@
+=============== COMANDO: ls ===============================================
+=============== ARCHIVO DE TRAZA: trace_4c38a4eb-5504-4818-afc0-6dfbe9c3f825.txt ========================================
+=============== HORA: 2023-11-05 23:55:25.200182126 +0100==============
+Archivo de volcado: .scdebug/ls/trace_volcado_98f1cf8b-b529-4f44-8828-affc929af223.txt
+=============== COMANDO: ls ===============================================
+=============== ARCHIVO DE TRAZA: trace_volcado_30245361-0938-4178-bc7b-3155bcb01550.txt ========================================
+=============== HORA: 2023-11-04 17:27:36.213575555 +0100==============
+Archivo de volcado: .scdebug/ls/trace_volcado_98f1cf8b-b529-4f44-8828-affc929af223.txt
+=============== COMANDO: ls ===============================================
+=============== ARCHIVO DE TRAZA: trace_5d7f6bde-9bfd-4c0f-a461-d3f3e6e0ab84.txt ========================================
+=============== HORA: 2023-11-04 17:25:11.703574463 +0100==============
+Archivo de volcado: .scdebug/ls/trace_volcado_98f1cf8b-b529-4f44-8828-affc929af223.txt
+=============== COMANDO: ls ===============================================
+=============== ARCHIVO DE TRAZA: trace_41aea92b-40f9-4a44-b566-3bc32c1c2fb3.txt ========================================
+=============== HORA: 2023-11-04 17:18:24.493575486 +0100==============
+Archivo de volcado: .scdebug/ls/trace_volcado_98f1cf8b-b529-4f44-8828-affc929af223.txt
+=============== COMANDO: ls ===============================================
+=============== ARCHIVO DE TRAZA: trace_575eecb0-8032-4a86-9b3e-927912903ee1.txt ========================================
+=============== HORA: 2023-11-04 17:17:54.553576193 +0100==============
+Archivo de volcado: .scdebug/ls/trace_volcado_98f1cf8b-b529-4f44-8828-affc929af223.txt
+=============== COMANDO: ls ===============================================
+=============== ARCHIVO DE TRAZA: trace_688ffc66-cc85-4368-afb3-a37aadf4c5ed.txt ========================================
+=============== HORA: 2023-11-04 16:00:23.503564565 +0100==============
+Archivo de volcado: .scdebug/ls/trace_volcado_98f1cf8b-b529-4f44-8828-affc929af223.txt
+=============== COMANDO: ls ===============================================
+=============== ARCHIVO DE TRAZA: trace_volcado_794594b2-691b-4891-8827-2832d7600c6c.txt ========================================
+=============== HORA: 2023-11-04 16:00:23.503564565 +0100==============
+Archivo de volcado: .scdebug/ls/trace_volcado_98f1cf8b-b529-4f44-8828-affc929af223.txt
+Comando ejecutándose en segundo plano.
+Trace file: .scdebug/ls/trace_98f1cf8b-b529-4f44-8828-affc929af223.txt
+total 2352
+-rwxr-xr-x 1 johnny johnny   27024 Nov  4 16:00 l2t
+-rw-r--r-- 1 johnny johnny     642 Nov  4 16:00 l2t.cc
+-rwxr-xr-x 1 johnny johnny   26976 Nov  5 23:25 ptbash
+-rw-r--r-- 1 johnny johnny     559 Nov  5 23:24 ptbash.cc
+-rwxr-xr-x 1 johnny johnny   13439 Nov  6 20:07 scdebug
+-rwxrwxrwx 1 johnny johnny 2324488 Nov  5 23:46 strace

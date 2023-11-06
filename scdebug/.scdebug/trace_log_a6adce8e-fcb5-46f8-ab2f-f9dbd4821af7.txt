@@ -1,1 +1,0 @@
-Ejecutando: ./strace -e file ls -l

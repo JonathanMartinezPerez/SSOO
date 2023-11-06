@@ -70,9 +70,6 @@ consult=""
 kill_procesos=""
 stop_signal=""
 commName=""
-process_monitoring=""
-process_monitoring_type=""
-process_monitoring_type_inv=""
 while [ "$#" -gt 0 ]; do
     case "$1" in
         -sto)
@@ -118,17 +115,9 @@ while [ "$#" -gt 0 ]; do
             shift
             commName="$1"
             shift
+            sstrace="strace"
+            shift
             program="$1" 
-            shift
-            ;;
-        -g | -gc | -ge)
-            process_monitoring="yes"
-            process_monitoring_type="$1"
-            shift
-            ;;
-        -inv)
-            # Opción para inverso en el orden de monitoreo
-            process_monitoring_type_inv="inv"
             shift
             ;;
         *)
@@ -158,7 +147,7 @@ exec > >(tee -a "$log_file") 2>&1
 create_dir "$trace_dir"
 
 # Si no se incluyen ni -v ni -vall, mostrar los procesos en ejecución del usuario.
-if [ "$consult" == "" ]  && [ "$stop_signal" != "yes" ] && [ "$process_monitoring" != "yes" ]; then
+if [ "$consult" == "" ]  && [ "$stop_signal" != "yes" ]; then
     echo "Procesos en ejecución del usuario $USER:"
     # Listar los procesos del usuario
     ps -u "$USER" -o pid,ppid,user,comm,start --sort=start
@@ -245,7 +234,7 @@ if [ "$strace_options" != "" ] && [ "${#programs_to_attach[@]}" -eq 0 ] && [ "${
     launch_strace "$strace_options" "$trace_file" "$program" "${args[@]}" &
     echo "Comando ejecutándose en segundo plano."
     echo "Trace file: $trace_file"
-elif [ "$strace_options" == "" ] && [ "${#programs_to_attach[@]}" -eq 0 ] && [ "${#pids_to_attach[@]}" -eq 0 ] && [ "$stop_signal" != "yes" ] && [ "$process_monitoring" != "yes" ]; then
+elif [ "$strace_options" == "" ] && [ "${#programs_to_attach[@]}" -eq 0 ] && [ "${#pids_to_attach[@]}" -eq 0 ] && [ "$kill_procesos" != "yes" ] && [ "$stop_signal" != "yes" ]; then
     launch_strace "$strace_options" "$trace_file" "$program" "${args[@]}" &
     echo "Comando ejecutándose en segundo plano."
     echo "Trace file: $trace_file"
@@ -265,69 +254,7 @@ if [ "$stop_signal" == "yes" ] && [ "${#programs_to_attach[@]}" -eq 0 ] && [ "${
     kill -SIGSTOP $$
 
     # Ejecutar el programa especificado
-    LaunchProg=("$program" "${args[@]}")
+    LaunchProg=("$sstrace" "$program" "${args[@]}")
     echo "Ejecutando: ${LaunchProg[@]}"
     exec "${LaunchProg[@]}" >> "$trace_file" 2>&1
-fi
-
-if [ "$process_monitoring" == "yes" ]; then
-    # Coge la lista de los PIDS de los procesos que empiecen por traced_
-    pids_to_monitor=($(ps -u "$USER" -o pid,comm --no-headers | awk '$2 ~ /^traced_/ {print $1}'))
-
-    # Bucle para cada uno de los pids
-    for pid in "${pids_to_monitor[@]}"; do
-        # Llamamos a strace para hacer el attach al proceso
-        strace_command="strace $strace_options -p $pid"
-        if [ "$process_monitoring_type" == "-gc" ] || [ "$process_monitoring_type" == "-ge" ]; then
-            strace_command="$strace_command -c"
-        fi
-
-        if [ "$process_monitoring_type" == "-g" ]; then
-            # Ejecuta en segundo plano y redirige errores
-            exec $strace_command >> "$trace_file" 2>&1 &
-        else
-            strace_output=$(exec $strace_command 2>&1)
-        fi
-        # Sleep para dejar que se complete
-        sleep 0.1
-
-        # Activa SIGCONT
-        kill -SIGCONT $pid
-
-        # Extrae la información de las diferentes variables para mostrarlas más tarde
-        if [ "$process_monitoring_type" == "-gc" ] || [ "$process_monitoring_type" == "-ge" ]; then
-            name=$(echo "$strace_output" | grep -v "^[[:space:]]*$strace_command" | awk '{print $NF}' | sort | uniq -c | sort -k1,1n | tail -1 | awk '{print $2}')
-            max_time=$(echo "$strace_output" | grep -v "^[[:space:]]*$strace_command" | awk '{print $7}' | sort -n | tail -1)
-            total_time=$(echo "$strace_output" | grep "^[[:space:]]*total time:" | awk '{print $3}')
-            calls=$(echo "$strace_output" | grep "^[[:space:]]*calls:" | awk '{print $2}')
-            errs=$(echo "$strace_output" | grep "^[[:space:]]*errors:" | awk '{print $2}')
-
-            # Guardamos info
-            process_info+=("$pid $name $max_time $total_time $calls $errs")
-        fi
-    done
-
-    # Hacemos las diferentes formas según las opciones introducidas
-    if [ "$process_monitoring_type" == "-gc" ]; then
-        # Ordenación por número de calls en ascendente
-        process_info_sorted=($(echo "${process_info[@]}" | tr ' ' '\n' | sort -k6,6n | tr '\n' ' '))
-    elif [ "$process_monitoring_type" == "-ge" ]; then
-        # Ordenación por número de errores en ascendente
-        process_info_sorted=($(echo "${process_info[@]}" | tr ' ' '\n' | sort -k7,7n | tr '\n' ' '))
-    elif [ "$process_monitoring_type_inv" == "inv" ]; then
-        # Inversa para hacerlo en descendente
-        process_info_sorted=($(echo "${process_info[@]}" | tr ' ' '\n' | sort -k1,1nr | tr '\n' ' '))
-    fi
-
-    # Mostramos los resultados en forma de tabla
-    if [ "${#process_info_sorted[@]}" -gt 0 ] && [ "$process_monitoring_type" != "g" ]; then
-        # Imprimir encabezados de la tabla
-        echo "PID Name Max-Time Total-Time Calls Errors"
-        for info in "${process_info_sorted[@]}"; do
-            # Imprimir cada fila de la tabla
-            echo "$info" | tr ' ' '\t'
-        done
-    else
-        echo "No processes found for monitoring."
-    fi
 fi

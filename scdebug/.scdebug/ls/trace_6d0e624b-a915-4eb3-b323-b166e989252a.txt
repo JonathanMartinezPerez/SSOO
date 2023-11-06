@@ -1,22 +1,22 @@
-./strace: Exit of unknown pid 7642 ignored
-execve("/usr/bin/ls", ["ls"], 0x7fffc67b0180 /* 27 vars */) = 0
-brk(NULL)                               = 0x7fffbc2b2000
-arch_prctl(0x3001 /* ARCH_??? */, 0x7fffc3d5a120) = -1 EINVAL (Invalid argument)
-mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7facc72c0000
+strace: Exit of unknown pid 29995 ignored
+execve("/usr/bin/ls", ["ls", "/usr/"], 0x7fff5a9ada58 /* 33 vars */) = 0
+brk(NULL)                               = 0x562adb71f000
+arch_prctl(0x3001 /* ARCH_??? */, 0x7ffe035d9940) = -1 EINVAL (Invalid argument)
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f8e65d0b000
 access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
-newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=21051, ...}, AT_EMPTY_PATH) = 0
-mmap(NULL, 21051, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7facc72ca000
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=17083, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 17083, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f8e65d06000
 close(3)                                = 0
 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libselinux.so.1", O_RDONLY|O_CLOEXEC) = 3
 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=166280, ...}, AT_EMPTY_PATH) = 0
-mmap(NULL, 177672, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7facc7290000
-mprotect(0x7facc7296000, 139264, PROT_NONE) = 0
-mmap(0x7facc7296000, 106496, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x6000) = 0x7facc7296000
-mmap(0x7facc72b0000, 28672, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x20000) = 0x7facc72b0000
-mmap(0x7facc72b8000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x27000) = 0x7facc72b8000
-mmap(0x7facc72ba000, 5640, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7facc72ba000
+mmap(NULL, 177672, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f8e65cda000
+mprotect(0x7f8e65ce0000, 139264, PROT_NONE) = 0
+mmap(0x7f8e65ce0000, 106496, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x6000) = 0x7f8e65ce0000
+mmap(0x7f8e65cfa000, 28672, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x20000) = 0x7f8e65cfa000
+mmap(0x7f8e65d02000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x27000) = 0x7f8e65d02000
+mmap(0x7f8e65d04000, 5640, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f8e65d04000
 close(3)                                = 0
 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832
@@ -25,137 +25,139 @@ pread64(3, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 
 pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0i8\235HZ\227\223\333\350s\360\352,\223\340."..., 68, 896) = 68
 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=2216304, ...}, AT_EMPTY_PATH) = 0
 pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
-mmap(NULL, 2260560, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7facc7060000
-mmap(0x7facc7088000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7facc7088000
-mmap(0x7facc721d000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x7facc721d000
-mmap(0x7facc7275000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x214000) = 0x7facc7275000
-mmap(0x7facc727b000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7facc727b000
+mmap(NULL, 2260560, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f8e65ab2000
+mmap(0x7f8e65ada000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7f8e65ada000
+mmap(0x7f8e65c6f000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x7f8e65c6f000
+mmap(0x7f8e65cc7000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x214000) = 0x7f8e65cc7000
+mmap(0x7f8e65ccd000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f8e65ccd000
 close(3)                                = 0
 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libpcre2-8.so.0", O_RDONLY|O_CLOEXEC) = 3
 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=613064, ...}, AT_EMPTY_PATH) = 0
-mmap(NULL, 615184, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7facc6fc0000
-mmap(0x7facc6fc2000, 438272, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000) = 0x7facc6fc2000
-mmap(0x7facc702d000, 163840, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x6d000) = 0x7facc702d000
-mmap(0x7facc7055000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x94000) = 0x7facc7055000
+mmap(NULL, 615184, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f8e65a1b000
+mmap(0x7f8e65a1d000, 438272, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000) = 0x7f8e65a1d000
+mmap(0x7f8e65a88000, 163840, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x6d000) = 0x7f8e65a88000
+mmap(0x7f8e65ab0000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x94000) = 0x7f8e65ab0000
 close(3)                                = 0
-mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7facc6fb0000
-arch_prctl(ARCH_SET_FS, 0x7facc6fb0800) = 0
-set_tid_address(0x7facc6fb0ad0)         = 7675
-set_robust_list(0x7facc6fb0ae0, 24)     = 0
-rseq(0x7facc6fb11a0, 0x20, 0, 0x53053053) = -1 ENOSYS (Function not implemented)
-mprotect(0x7facc7275000, 16384, PROT_READ) = 0
-mprotect(0x7facc7055000, 4096, PROT_READ) = 0
-mprotect(0x7facc72b8000, 4096, PROT_READ) = 0
-mprotect(0x7facc732f000, 4096, PROT_READ) = 0
-mprotect(0x7facc7308000, 8192, PROT_READ) = 0
-prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=8192*1024}) = 0
-munmap(0x7facc72ca000, 21051)           = 0
-statfs("/sys/fs/selinux", 0x7fffc3d5a160) = -1 ENOENT (No such file or directory)
-statfs("/selinux", 0x7fffc3d5a160)      = -1 ENOENT (No such file or directory)
-getrandom("\x94\x8d\x95\x02\x80\xd1\x7d\x83", 8, GRND_NONBLOCK) = 8
-brk(NULL)                               = 0x7fffbc2b2000
-brk(0x7fffbc2d3000)                     = 0x7fffbc2d3000
+mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f8e65a18000
+arch_prctl(ARCH_SET_FS, 0x7f8e65a18800) = 0
+set_tid_address(0x7f8e65a18ad0)         = 30004
+set_robust_list(0x7f8e65a18ae0, 24)     = 0
+rseq(0x7f8e65a191a0, 0x20, 0, 0x53053053) = 0
+mprotect(0x7f8e65cc7000, 16384, PROT_READ) = 0
+mprotect(0x7f8e65ab0000, 4096, PROT_READ) = 0
+mprotect(0x7f8e65d02000, 4096, PROT_READ) = 0
+mprotect(0x562ada0ab000, 4096, PROT_READ) = 0
+mprotect(0x7f8e65d45000, 8192, PROT_READ) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+munmap(0x7f8e65d06000, 17083)           = 0
+statfs("/sys/fs/selinux", 0x7ffe035d9980) = -1 ENOENT (No such file or directory)
+statfs("/selinux", 0x7ffe035d9980)      = -1 ENOENT (No such file or directory)
+getrandom("\x11\x9f\xaa\x85\x6c\x9d\xc0\x30", 8, GRND_NONBLOCK) = 8
+brk(NULL)                               = 0x562adb71f000
+brk(0x562adb740000)                     = 0x562adb740000
 openat(AT_FDCWD, "/proc/filesystems", O_RDONLY|O_CLOEXEC) = 3
 newfstatat(3, "", {st_mode=S_IFREG|0444, st_size=0, ...}, AT_EMPTY_PATH) = 0
-read(3, "nodev\tsysfs\nnodev\trootfs\nnodev\tb"..., 4096) = 312
-read(3, "", 4096)                       = 0
+read(3, "nodev\tsysfs\nnodev\ttmpfs\nnodev\tbd"..., 1024) = 478
+read(3, "", 1024)                       = 0
 close(3)                                = 0
 access("/etc/selinux/config", F_OK)     = -1 ENOENT (No such file or directory)
 openat(AT_FDCWD, "/usr/lib/locale/locale-archive", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
 openat(AT_FDCWD, "/usr/share/locale/locale.alias", O_RDONLY|O_CLOEXEC) = 3
 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=2996, ...}, AT_EMPTY_PATH) = 0
-read(3, "# Locale name alias data base.\n#"..., 512) = 512
-read(3, "See the\n# GNU General Public Lic"..., 512) = 512
-read(3, "und for the time being for\n# bac"..., 512) = 512
-read(3, "These lines were removed\n# becau"..., 512) = 512
-read(3, "-8859-1\ngalego\t\tgl_ES.ISO-8859-1"..., 512) = 512
-read(3, "NO.ISO-8859-1 nb_NO.ISO-8859-1\nn"..., 512) = 436
-read(3, "", 512)                        = 0
+read(3, "# Locale name alias data base.\n#"..., 4096) = 2996
+read(3, "", 4096)                       = 0
 close(3)                                = 0
 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_IDENTIFICATION", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_IDENTIFICATION", O_RDONLY|O_CLOEXEC) = 3
 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=258, ...}, AT_EMPTY_PATH) = 0
-mmap(NULL, 258, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7facc730d000
+mmap(NULL, 258, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f8e65d44000
 close(3)                                = 0
 openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache", O_RDONLY) = 3
 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=27002, ...}, AT_EMPTY_PATH) = 0
-mmap(NULL, 27002, PROT_READ, MAP_SHARED, 3, 0) = 0x7facc72c9000
+mmap(NULL, 27002, PROT_READ, MAP_SHARED, 3, 0) = 0x7f8e65a11000
 close(3)                                = 0
-futex(0x7facc727aa6c, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+futex(0x7f8e65ccca6c, FUTEX_WAKE_PRIVATE, 2147483647) = 0
 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_MEASUREMENT", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MEASUREMENT", O_RDONLY|O_CLOEXEC) = 3
 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=23, ...}, AT_EMPTY_PATH) = 0
-mmap(NULL, 23, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7facc730c000
+mmap(NULL, 23, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f8e65d0a000
 close(3)                                = 0
 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_TELEPHONE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_TELEPHONE", O_RDONLY|O_CLOEXEC) = 3
 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=47, ...}, AT_EMPTY_PATH) = 0
-mmap(NULL, 47, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7facc7307000
+mmap(NULL, 47, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f8e65d09000
 close(3)                                = 0
 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_ADDRESS", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_ADDRESS", O_RDONLY|O_CLOEXEC) = 3
 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=127, ...}, AT_EMPTY_PATH) = 0
-mmap(NULL, 127, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7facc72c8000
+mmap(NULL, 127, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f8e65d08000
 close(3)                                = 0
 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_NAME", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_NAME", O_RDONLY|O_CLOEXEC) = 3
 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=62, ...}, AT_EMPTY_PATH) = 0
-mmap(NULL, 62, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7facc72c7000
+mmap(NULL, 62, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f8e65d07000
 close(3)                                = 0
 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_PAPER", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_PAPER", O_RDONLY|O_CLOEXEC) = 3
 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=34, ...}, AT_EMPTY_PATH) = 0
-mmap(NULL, 34, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7facc72c6000
+mmap(NULL, 34, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f8e65d06000
 close(3)                                = 0
 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_MESSAGES", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MESSAGES", O_RDONLY|O_CLOEXEC) = 3
-newfstatat(3, "", {st_mode=S_IFDIR|0755, st_size=512, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_EMPTY_PATH) = 0
 close(3)                                = 0
 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES", O_RDONLY|O_CLOEXEC) = 3
 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=48, ...}, AT_EMPTY_PATH) = 0
-mmap(NULL, 48, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7facc72c5000
+mmap(NULL, 48, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f8e65a10000
 close(3)                                = 0
 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_MONETARY", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MONETARY", O_RDONLY|O_CLOEXEC) = 3
 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=270, ...}, AT_EMPTY_PATH) = 0
-mmap(NULL, 270, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7facc72c4000
+mmap(NULL, 270, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f8e65a0f000
 close(3)                                = 0
 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_COLLATE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_COLLATE", O_RDONLY|O_CLOEXEC) = 3
 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=1406, ...}, AT_EMPTY_PATH) = 0
-mmap(NULL, 1406, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7facc72c3000
+mmap(NULL, 1406, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f8e65a0e000
 close(3)                                = 0
 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_TIME", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_TIME", O_RDONLY|O_CLOEXEC) = 3
 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=3360, ...}, AT_EMPTY_PATH) = 0
-mmap(NULL, 3360, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7facc72c2000
+mmap(NULL, 3360, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f8e65a0d000
 close(3)                                = 0
 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_NUMERIC", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_NUMERIC", O_RDONLY|O_CLOEXEC) = 3
 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=50, ...}, AT_EMPTY_PATH) = 0
-mmap(NULL, 50, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7facc72bf000
+mmap(NULL, 50, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f8e65a0c000
 close(3)                                = 0
 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_CTYPE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_CTYPE", O_RDONLY|O_CLOEXEC) = 3
 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=353616, ...}, AT_EMPTY_PATH) = 0
-mmap(NULL, 353616, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7facc6f59000
+mmap(NULL, 353616, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f8e659b5000
 close(3)                                = 0
-ioctl(1, TCGETS, 0x7fffc3d5a090)        = -1 ENOTTY (Inappropriate ioctl for device)
-ioctl(1, TIOCGWINSZ, 0x7fffc3d5a180)    = -1 ENOTTY (Inappropriate ioctl for device)
-openat(AT_FDCWD, ".", O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY) = 3
-newfstatat(3, "", {st_mode=S_IFDIR|0755, st_size=512, ...}, AT_EMPTY_PATH) = 0
-getdents64(3, /* 9 entries */, 32768)   = 264
-getdents64(3, /* 0 entries */, 32768)   = 0
+ioctl(1, TCGETS, 0x7ffe035d98b0)        = -1 ENOTTY (Inappropriate ioctl for device)
+ioctl(1, TIOCGWINSZ, 0x7ffe035d99a0)    = -1 ENOTTY (Inappropriate ioctl for device)
+statx(AT_FDCWD, "/usr/", AT_STATX_SYNC_AS_STAT, STATX_MODE, {stx_mask=STATX_BASIC_STATS|STATX_MNT_ID, stx_attributes=0, stx_mode=S_IFDIR|0755, stx_size=4096, ...}) = 0
+openat(AT_FDCWD, "/usr/", O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY) = 3
+newfstatat(3, "", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_EMPTY_PATH) = 0
+getdents64(3, 0x562adb7284f0 /* 14 entries */, 32768) = 400
+getdents64(3, 0x562adb7284f0 /* 0 entries */, 32768) = 0
 close(3)                                = 0
-newfstatat(1, "", {st_mode=S_IFREG|0644, st_size=11122, ...}, AT_EMPTY_PATH) = 0
-write(1, "l2t\nl2t.cc\nptbash\nptbash.cc\nscde"..., 43l2t
-l2t.cc
-ptbash
-ptbash.cc
-scdebug
-strace
-) = 43
+newfstatat(1, "", {st_mode=S_IFREG|0644, st_size=11008, ...}, AT_EMPTY_PATH) = 0
+write(1, "bin\ngames\ninclude\nlib\nlib32\nlib6"..., 70bin
+games
+include
+lib
+lib32
+lib64
+libexec
+libx32
+local
+sbin
+share
+src
+) = 70
 close(1)                                = 0
 close(2)                                = 0
 exit_group(0)                           = ?
