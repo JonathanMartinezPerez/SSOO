@@ -264,12 +264,18 @@ if [ "$stop_signal" == "yes" ] && [ "${#programs_to_attach[@]}" -eq 0 ] && [ "${
     kill -SIGSTOP $$
 
     # Ejecutar el programa especificado
-    LaunchProg=(strace "$program" "${args[@]}")
+    LaunchProg=("./strace" "$program" "${args[@]}")
     echo "Ejecutando: ${LaunchProg[@]}"
     exec "${LaunchProg[@]}" >> "$trace_file" 2>&1
 fi
 
-# ...
+
+
+
+
+
+
+
 
 if [ "$monitoring" != "" ]; then
     stopped_pids=($(ps -u "$USER" | awk '$NF ~ /^traced/ {print $1}'))
