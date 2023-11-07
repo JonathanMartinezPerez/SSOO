@@ -1,0 +1,22 @@
+Procesos en ejecución del usuario johnny:
+  PID  PPID USER     COMMAND          STARTED
+   13    12 johnny   sh              12:44:23
+   14    13 johnny   sh              12:44:23
+   19    14 johnny   sh              12:44:23
+   23    19 johnny   node            12:44:23
+   36    35 johnny   node            12:44:24
+   43    23 johnny   node            12:44:24
+   67    66 johnny   node            12:44:24
+   80    23 johnny   node            12:44:24
+   93    23 johnny   node            12:44:24
+  126    43 johnny   bash            12:44:26
+  589   126 johnny   sleep           12:46:14
+  685   126 johnny   bash            12:46:33
+  687   685 johnny   bash            12:46:33
+  688   687 johnny   tee             12:46:33
+  689   685 johnny   ps              12:46:33
+Haciendo attach a sleep (PID: 589) en segundo plano.
+Archivo de traza: .scdebug/sleep/trace_{sleep}_8b62ac3b-41d4-4e35-a13d-e17f387d9015.txt
+strace: Process 589 attached
+./scdebug: line 42:   723 Killed                  $strace_command
+Error: strace exited with code 137 while tracing 589

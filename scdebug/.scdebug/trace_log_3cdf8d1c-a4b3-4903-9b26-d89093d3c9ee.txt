@@ -1,2 +1,0 @@
-strace ls -la
-Ejecutando: ./strace ls -la

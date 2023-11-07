@@ -1,0 +1,13 @@
+=============== COMANDO: ls ===============================================
+=============== ARCHIVO DE TRAZA: trace_dbb3aa94-bba3-4aba-af9e-76e7caed4e90.txt ========================================
+=============== HORA: 2023-11-07 12:49:13.450522916 +0100==============
+.scdebug/ls/trace_volcado_c2e78268-72ac-4eae-af42-35ba05b11943.txt
+Comando ejecutándose en segundo plano.
+Trace file: .scdebug/ls/trace_c2e78268-72ac-4eae-af42-35ba05b11943.txt
+total 2348
+-rwxr-xr-x 1 johnny johnny   27024 Nov  4 16:00 l2t
+-rw-r--r-- 1 johnny johnny     642 Nov  4 16:00 l2t.cc
+-rwxr-xr-x 1 johnny johnny   26976 Nov  5 23:25 ptbash
+-rw-r--r-- 1 johnny johnny     559 Nov  5 23:24 ptbash.cc
+-rwxrwxrwx 1 johnny johnny   11051 Nov  7 12:45 scdebug
+-rwxrwxrwx 1 johnny johnny 2324488 Nov  5 23:46 strace
