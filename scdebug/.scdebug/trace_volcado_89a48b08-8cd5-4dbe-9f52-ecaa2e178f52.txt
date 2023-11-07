@@ -1,0 +1,9 @@
+Haciendo attach a sleep (PID: 3768) en segundo plano.
+Archivo de traza: .scdebug/sleep/trace_{sleep}_89a48b08-8cd5-4dbe-9f52-ecaa2e178f52.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: trace_log_20672432-1791-4a33-864f-9461a4e486bc.txt ========================================
+strace: Could not attach to process. If your uid matches the uid of the target process, check the setting of /proc/sys/kernel/yama/ptrace_scope, or try again as the root user. For more details, see /etc/sysctl.d/10-ptrace.conf: Operation not permitted
+strace: attach: ptrace(PTRACE_SEIZE, 3768): Operation not permitted
+Error: strace exited with code 1 while tracing 3768
+=============== HORA: 2023-11-07 13:03:32.750521747 +0100==============
+.scdebug//trace_volcado_89a48b08-8cd5-4dbe-9f52-ecaa2e178f52.txt

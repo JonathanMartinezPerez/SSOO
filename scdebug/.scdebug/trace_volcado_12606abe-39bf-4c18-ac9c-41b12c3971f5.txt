@@ -1,0 +1,7 @@
+Haciendo attach a sleep (PID: 3996) en segundo plano.
+Archivo de traza: .scdebug/sleep/trace_{sleep}_12606abe-39bf-4c18-ac9c-41b12c3971f5.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: trace_log_1bd85f36-7c4d-4961-8fde-a7d0c4c6edfc.txt ========================================
+strace: Process 3996 attached
+=============== HORA: 2023-11-07 13:03:45.450521759 +0100==============
+.scdebug//trace_volcado_12606abe-39bf-4c18-ac9c-41b12c3971f5.txt

@@ -1,0 +1,24 @@
+Procesos en ejecución del usuario johnny:
+  PID  PPID USER     COMMAND          STARTED
+   13    12 johnny   sh              12:44:23
+   14    13 johnny   sh              12:44:23
+   19    14 johnny   sh              12:44:23
+   23    19 johnny   node            12:44:23
+   36    35 johnny   node            12:44:24
+   43    23 johnny   node            12:44:24
+   67    66 johnny   node            12:44:24
+   80    23 johnny   node            12:44:24
+   93    23 johnny   node            12:44:24
+  126    43 johnny   bash            12:44:26
+ 2390    12 johnny   git             12:56:24
+ 3460   126 johnny   sleep           13:02:06
+ 3980   126 johnny   sleep           13:03:42
+ 4387   126 johnny   bash            13:05:04
+ 4426  4387 johnny   bash            13:05:04
+ 4427  4426 johnny   tee             13:05:04
+ 4428  4387 johnny   ps              13:05:04
+Comando ejecutándose en segundo plano.
+Trace file: .scdebug//trace_6d9e5396-b762-459c-8cae-33eca41b8c69.txt
+strace: must have PROG [ARGS] or -p PID
+Try 'strace -h' for more information.
+Error: strace exited with code 1 while tracing 

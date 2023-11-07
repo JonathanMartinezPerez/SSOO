@@ -10,7 +10,6 @@ function usage() {
     echo "-pattch    pidstoattch    Hace un attach al proceso indicado."
     echo "-v         Volcar el archivo mas reciente de los archivos de depuración en la salida estándar."
     echo "-vall      Volcar la información de todos los archivos de depuración en la salida estándar."
-    exit 0
 }
 
 # Crea un directorio en acso de que no exista

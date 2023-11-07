@@ -1,0 +1,117 @@
+Haciendo attach a sleep (PID: 4111) en segundo plano.
+Archivo de traza: .scdebug/sleep/trace_{sleep}_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: trace_log_669cf7d0-e60f-461d-a91b-1a933b83e743.txt ========================================
+strace: Process 4111 attached
+=============== HORA: 2023-11-07 13:04:03.680521759 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: trace_log_1bd85f36-7c4d-4961-8fde-a7d0c4c6edfc.txt ========================================
+=============== HORA: 2023-11-07 13:03:45.450521759 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: trace_volcado_12606abe-39bf-4c18-ac9c-41b12c3971f5.txt ========================================
+=============== HORA: 2023-11-07 13:03:45.450521759 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: sleep ========================================
+=============== HORA: 2023-11-07 13:04:03.680521759 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+cat: .scdebug//sleep: Is a directory
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: trace_log_20672432-1791-4a33-864f-9461a4e486bc.txt ========================================
+=============== HORA: 2023-11-07 13:03:32.750521747 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: trace_volcado_89a48b08-8cd5-4dbe-9f52-ecaa2e178f52.txt ========================================
+=============== HORA: 2023-11-07 13:03:32.750521747 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: trace_log_62d3f0df-240a-4c4e-83de-381afb858b50.txt ========================================
+=============== HORA: 2023-11-07 13:03:24.760521747 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: trace_log_6efa8c7a-579e-4c47-b919-ddbee2e22aad.txt ========================================
+=============== HORA: 2023-11-07 13:03:09.870521779 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: ls ========================================
+=============== HORA: 2023-11-07 13:03:09.840521779 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+cat: .scdebug//ls: Is a directory
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: trace_log_b0ce70c9-d85e-4408-8e61-0189981e612c.txt ========================================
+=============== HORA: 2023-11-07 12:49:55.320522682 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: trace_log_c2e78268-72ac-4eae-af42-35ba05b11943.txt ========================================
+=============== HORA: 2023-11-07 12:49:39.820522834 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: trace_log_dbb3aa94-bba3-4aba-af9e-76e7caed4e90.txt ========================================
+=============== HORA: 2023-11-07 12:49:13.450522916 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: trace_log_9d34747b-bf89-4764-8aa4-15a143d7ab42.txt ========================================
+=============== HORA: 2023-11-07 12:48:11.260522442 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: trace_log_134e9d86-dba7-4fda-8289-8cd7fd53731c.txt ========================================
+=============== HORA: 2023-11-07 12:46:54.580521805 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: trace_log_239bfa0d-ec8e-47eb-b82a-350a44339875.txt ========================================
+=============== HORA: 2023-11-07 12:45:26.460519990 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: trace_log_f8a44576-2c1b-40e5-b4ae-305c146a1c54.txt ========================================
+=============== HORA: 2023-11-07 01:30:08.400151603 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: trace_log_98f1cf8b-b529-4f44-8828-affc929af223.txt ========================================
+=============== HORA: 2023-11-06 20:14:06.114302093 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: yes ========================================
+=============== HORA: 2023-11-06 20:05:32.644302311 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+cat: .scdebug//yes: Is a directory
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: strace ========================================
+=============== HORA: 2023-11-06 19:39:38.144302319 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+cat: .scdebug//strace: Is a directory
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: trace_log_315dc8b6-9db3-482a-9fcd-32bf1246ee1b.txt ========================================
+=============== HORA: 2023-11-06 18:04:15.764305700 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: trace_log_88a3efc4-4fb0-4aec-924d-67c25c10ee1c.txt ========================================
+=============== HORA: 2023-11-06 18:04:15.764305700 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: trace_log_81df6c70-6fdf-43c6-9e34-00d62470b33d.txt ========================================
+=============== HORA: 2023-11-06 00:47:29.090182215 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: tee ========================================
+=============== HORA: 2023-11-04 16:45:12.613575972 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+cat: .scdebug//tee: Is a directory
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: bash ========================================
+=============== HORA: 2023-11-04 16:00:23.503564565 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+cat: .scdebug//bash: Is a directory
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: node ========================================
+=============== HORA: 2023-11-04 16:00:23.503564565 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+cat: .scdebug//node: Is a directory
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: sh ========================================
+=============== HORA: 2023-11-04 16:00:23.503564565 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+cat: .scdebug//sh: Is a directory
+./scdebug: line 42:  4127 Killed                  $strace_command
+Error: strace exited with code 137 while tracing 4111

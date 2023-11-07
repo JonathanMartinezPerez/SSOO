@@ -1,0 +1,1 @@
+Error: strace exited with code 1 while tracing 3768

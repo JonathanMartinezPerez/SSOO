@@ -1,0 +1,648 @@
+Haciendo attach a sleep (PID: 4111) en segundo plano.
+Archivo de traza: .scdebug/sleep/trace_{sleep}_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: trace_log_669cf7d0-e60f-461d-a91b-1a933b83e743.txt ========================================
+strace: Process 4111 attached
+=============== HORA: 2023-11-07 13:04:03.680521759 +0100==============
+Archivo de volcado: .scdebug//trace_volcado_e6f02273-cf8f-41b2-bb92-94f4f454c442.txt
+Haciendo attach a sleep (PID: 3996) en segundo plano.
+Archivo de traza: .scdebug/sleep/trace_{sleep}_12606abe-39bf-4c18-ac9c-41b12c3971f5.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: trace_log_1bd85f36-7c4d-4961-8fde-a7d0c4c6edfc.txt ========================================
+strace: Process 3996 attached
+=============== HORA: 2023-11-07 13:03:45.450521759 +0100==============
+.scdebug//trace_volcado_12606abe-39bf-4c18-ac9c-41b12c3971f5.txt
+Haciendo attach a sleep (PID: 3996) en segundo plano.
+Archivo de traza: .scdebug/sleep/trace_{sleep}_12606abe-39bf-4c18-ac9c-41b12c3971f5.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: trace_log_1bd85f36-7c4d-4961-8fde-a7d0c4c6edfc.txt ========================================
+strace: Process 3996 attached
+=============== HORA: 2023-11-07 13:03:45.450521759 +0100==============
+.scdebug//trace_volcado_12606abe-39bf-4c18-ac9c-41b12c3971f5.txt
+Haciendo attach a sleep (PID: 3768) en segundo plano.
+Archivo de traza: .scdebug/sleep/trace_{sleep}_89a48b08-8cd5-4dbe-9f52-ecaa2e178f52.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: trace_log_20672432-1791-4a33-864f-9461a4e486bc.txt ========================================
+strace: Could not attach to process. If your uid matches the uid of the target process, check the setting of /proc/sys/kernel/yama/ptrace_scope, or try again as the root user. For more details, see /etc/sysctl.d/10-ptrace.conf: Operation not permitted
+strace: attach: ptrace(PTRACE_SEIZE, 3768): Operation not permitted
+Error: strace exited with code 1 while tracing 3768
+=============== HORA: 2023-11-07 13:03:32.750521747 +0100==============
+.scdebug//trace_volcado_89a48b08-8cd5-4dbe-9f52-ecaa2e178f52.txt
+Haciendo attach a sleep (PID: 3768) en segundo plano.
+Archivo de traza: .scdebug/sleep/trace_{sleep}_89a48b08-8cd5-4dbe-9f52-ecaa2e178f52.txt
+=============== COMANDO:  ===============================================
+=============== ARCHIVO DE TRAZA: trace_log_20672432-1791-4a33-864f-9461a4e486bc.txt ========================================
+strace: Could not attach to process. If your uid matches the uid of the target process, check the setting of /proc/sys/kernel/yama/ptrace_scope, or try again as the root user. For more details, see /etc/sysctl.d/10-ptrace.conf: Operation not permitted
+strace: attach: ptrace(PTRACE_SEIZE, 3768): Operation not permitted
+Error: strace exited with code 1 while tracing 3768
+=============== HORA: 2023-11-07 13:03:32.750521747 +0100==============
+.scdebug//trace_volcado_89a48b08-8cd5-4dbe-9f52-ecaa2e178f52.txt
+Procesos en ejecución del usuario johnny:
+  PID  PPID USER     COMMAND          STARTED
+   13    12 johnny   sh              12:44:23
+   14    13 johnny   sh              12:44:23
+   19    14 johnny   sh              12:44:23
+   23    19 johnny   node            12:44:23
+   36    35 johnny   node            12:44:24
+   43    23 johnny   node            12:44:24
+   67    66 johnny   node            12:44:24
+   80    23 johnny   node            12:44:24
+   93    23 johnny   node            12:44:24
+  126    43 johnny   bash            12:44:26
+ 2390    12 johnny   git             12:56:24
+ 3460   126 johnny   sleep           13:02:06
+ 3768   126 johnny   sleep           13:03:18
+ 3801   126 johnny   bash            13:03:24
+ 3803  3801 johnny   bash            13:03:24
+ 3804  3803 johnny   tee             13:03:24
+ 3805  3801 johnny   ps              13:03:24
+Haciendo attach a sleep (PID: 3768) en segundo plano.
+Archivo de traza: .scdebug/sleep/trace_{sleep}_b1de0f1a-f231-4412-b129-f644e22057d1.txt
+strace: Process 3768 attached
+Procesos en ejecución del usuario johnny:
+  PID  PPID USER     COMMAND          STARTED
+   13    12 johnny   sh              12:44:23
+   14    13 johnny   sh              12:44:23
+   19    14 johnny   sh              12:44:23
+   23    19 johnny   node            12:44:23
+   36    35 johnny   node            12:44:24
+   43    23 johnny   node            12:44:24
+   67    66 johnny   node            12:44:24
+   80    23 johnny   node            12:44:24
+   93    23 johnny   node            12:44:24
+  126    43 johnny   bash            12:44:26
+ 2390    12 johnny   git             12:56:24
+ 3460   126 johnny   sleep           13:02:06
+ 3666   126 johnny   bash            13:03:09
+ 3668  3666 johnny   bash            13:03:09
+ 3669  3668 johnny   tee             13:03:09
+ 3670  3666 johnny   ps              13:03:09
+Comando ejecutándose en segundo plano.
+Trace file: .scdebug/ls/trace_6efa8c7a-579e-4c47-b919-ddbee2e22aad.txt
+total 2348
+-rwxr-xr-x 1 johnny johnny   27024 Nov  4 16:00 l2t
+-rw-r--r-- 1 johnny johnny     642 Nov  4 16:00 l2t.cc
+-rwxr-xr-x 1 johnny johnny   26976 Nov  5 23:25 ptbash
+-rw-r--r-- 1 johnny johnny     559 Nov  5 23:24 ptbash.cc
+-rwxrwxrwx 1 johnny johnny   11076 Nov  7 12:55 scdebug
+-rwxrwxrwx 1 johnny johnny 2324488 Nov  5 23:46 strace
+=============== COMANDO: ls ===============================================
+=============== ARCHIVO DE TRAZA: trace_c2e78268-72ac-4eae-af42-35ba05b11943.txt ========================================
+=============== HORA: 2023-11-07 12:49:39.820522834 +0100==============
+Archivo de volcado: .scdebug/ls/trace_volcado_b0ce70c9-d85e-4408-8e61-0189981e612c.txt
+=============== COMANDO: ls ===============================================
+=============== ARCHIVO DE TRAZA: trace_volcado_c2e78268-72ac-4eae-af42-35ba05b11943.txt ========================================
+=============== HORA: 2023-11-07 12:49:39.790522834 +0100==============
+Archivo de volcado: .scdebug/ls/trace_volcado_b0ce70c9-d85e-4408-8e61-0189981e612c.txt
+=============== COMANDO: ls ===============================================
+=============== ARCHIVO DE TRAZA: trace_dbb3aa94-bba3-4aba-af9e-76e7caed4e90.txt ========================================
+=============== HORA: 2023-11-07 12:49:13.450522916 +0100==============
+Archivo de volcado: .scdebug/ls/trace_volcado_b0ce70c9-d85e-4408-8e61-0189981e612c.txt
+=============== COMANDO: ls ===============================================
+=============== ARCHIVO DE TRAZA: trace_0f81250f-539a-4ab1-b09f-ee85912956ec.txt ========================================
+=============== HORA: 2023-11-07 01:25:36.840152955 +0100==============
+Archivo de volcado: .scdebug/ls/trace_volcado_b0ce70c9-d85e-4408-8e61-0189981e612c.txt
+=============== COMANDO: ls ===============================================
+=============== ARCHIVO DE TRAZA: trace_fba6a9cd-1c3a-4fda-ba5d-9516090e85d9.txt ========================================
+=============== HORA: 2023-11-07 01:25:35.370152953 +0100==============
+Archivo de volcado: .scdebug/ls/trace_volcado_b0ce70c9-d85e-4408-8e61-0189981e612c.txt
+=============== COMANDO: ls ===============================================
+=============== ARCHIVO DE TRAZA: trace_2d8244a4-d797-4524-881e-eb28b71eaec2.txt ========================================
+=============== HORA: 2023-11-06 23:49:34.754301450 +0100==============
+Archivo de volcado: .scdebug/ls/trace_volcado_b0ce70c9-d85e-4408-8e61-0189981e612c.txt
+=============== COMANDO: ls ===============================================
+=============== ARCHIVO DE TRAZA: trace_0a30ef09-7421-438c-a369-c05054d86bb2.txt ========================================
+=============== HORA: 2023-11-06 23:23:54.724301109 +0100==============
+Archivo de volcado: .scdebug/ls/trace_volcado_b0ce70c9-d85e-4408-8e61-0189981e612c.txt
+=============== COMANDO: ls ===============================================
+=============== ARCHIVO DE TRAZA: trace_2aec78dc-cd56-466c-858e-4892025862e1.txt ========================================
+=============== HORA: 2023-11-06 23:01:24.464302377 +0100==============
+Archivo de volcado: .scdebug/ls/trace_volcado_b0ce70c9-d85e-4408-8e61-0189981e612c.txt
+Comando ejecutándose en segundo plano.
+Trace file: .scdebug/ls/trace_b0ce70c9-d85e-4408-8e61-0189981e612c.txt
+total 2348
+-rwxr-xr-x 1 johnny johnny   27024 Nov  4 16:00 l2t
+-rw-r--r-- 1 johnny johnny     642 Nov  4 16:00 l2t.cc
+-rwxr-xr-x 1 johnny johnny   26976 Nov  5 23:25 ptbash
+-rw-r--r-- 1 johnny johnny     559 Nov  5 23:24 ptbash.cc
+-rwxrwxrwx 1 johnny johnny   11051 Nov  7 12:45 scdebug
+-rwxrwxrwx 1 johnny johnny 2324488 Nov  5 23:46 strace
+=============== COMANDO: ls ===============================================
+=============== ARCHIVO DE TRAZA: trace_dbb3aa94-bba3-4aba-af9e-76e7caed4e90.txt ========================================
+=============== HORA: 2023-11-07 12:49:13.450522916 +0100==============
+.scdebug/ls/trace_volcado_c2e78268-72ac-4eae-af42-35ba05b11943.txt
+Comando ejecutándose en segundo plano.
+Trace file: .scdebug/ls/trace_c2e78268-72ac-4eae-af42-35ba05b11943.txt
+total 2348
+-rwxr-xr-x 1 johnny johnny   27024 Nov  4 16:00 l2t
+-rw-r--r-- 1 johnny johnny     642 Nov  4 16:00 l2t.cc
+-rwxr-xr-x 1 johnny johnny   26976 Nov  5 23:25 ptbash
+-rw-r--r-- 1 johnny johnny     559 Nov  5 23:24 ptbash.cc
+-rwxrwxrwx 1 johnny johnny   11051 Nov  7 12:45 scdebug
+-rwxrwxrwx 1 johnny johnny 2324488 Nov  5 23:46 strace
+Procesos en ejecución del usuario johnny:
+  PID  PPID USER     COMMAND          STARTED
+   13    12 johnny   sh              12:44:23
+   14    13 johnny   sh              12:44:23
+   19    14 johnny   sh              12:44:23
+   23    19 johnny   node            12:44:23
+   36    35 johnny   node            12:44:24
+   43    23 johnny   node            12:44:24
+   67    66 johnny   node            12:44:24
+   80    23 johnny   node            12:44:24
+   93    23 johnny   node            12:44:24
+  126    43 johnny   bash            12:44:26
+ 1443   126 johnny   bash            12:49:13
+ 1445  1443 johnny   bash            12:49:13
+ 1446  1445 johnny   tee             12:49:13
+ 1447  1443 johnny   ps              12:49:13
+Comando ejecutándose en segundo plano.
+Trace file: .scdebug/ls/trace_dbb3aa94-bba3-4aba-af9e-76e7caed4e90.txt
+total 2348
+-rwxr-xr-x 1 johnny johnny   27024 Nov  4 16:00 l2t
+-rw-r--r-- 1 johnny johnny     642 Nov  4 16:00 l2t.cc
+-rwxr-xr-x 1 johnny johnny   26976 Nov  5 23:25 ptbash
+-rw-r--r-- 1 johnny johnny     559 Nov  5 23:24 ptbash.cc
+-rwxrwxrwx 1 johnny johnny   11051 Nov  7 12:45 scdebug
+-rwxrwxrwx 1 johnny johnny 2324488 Nov  5 23:46 strace
+Procesos en ejecución del usuario johnny:
+  PID  PPID USER     COMMAND          STARTED
+   13    12 johnny   sh              12:44:23
+   14    13 johnny   sh              12:44:23
+   19    14 johnny   sh              12:44:23
+   23    19 johnny   node            12:44:23
+   36    35 johnny   node            12:44:24
+   43    23 johnny   node            12:44:24
+   67    66 johnny   node            12:44:24
+   80    23 johnny   node            12:44:24
+   93    23 johnny   node            12:44:24
+  126    43 johnny   bash            12:44:26
+  992   126 johnny   sleep           12:47:41
+  995   126 johnny   sleep           12:47:41
+ 1052   126 johnny   bash            12:47:54
+ 1054  1052 johnny   bash            12:47:54
+ 1055  1054 johnny   tee             12:47:54
+ 1056  1052 johnny   ps              12:47:54
+Haciendo attach al proceso sleep (PID: 992) en segundo plano.
+Archivo de traza: .scdebug/sleep/trace_sleep_325c4315-007b-4e24-8770-ad9c7ca3be89.txt
+Haciendo attach al proceso sleep (PID: 995) en segundo plano.
+Archivo de traza: .scdebug/sleep/trace_sleep_d4bc77f0-5081-4e39-81f0-b950ede3e44c.txt
+strace: Process 992 attached
+strace: Process 995 attached
+./scdebug: line 42:  1092 Killed                  $strace_command
+Error: strace exited with code 137 while tracing 992
+./scdebug: line 42:  1097 Killed                  $strace_command
+Error: strace exited with code 137 while tracing 995
+Procesos en ejecución del usuario johnny:
+  PID  PPID USER     COMMAND          STARTED
+   13    12 johnny   sh              12:44:23
+   14    13 johnny   sh              12:44:23
+   19    14 johnny   sh              12:44:23
+   23    19 johnny   node            12:44:23
+   36    35 johnny   node            12:44:24
+   43    23 johnny   node            12:44:24
+   67    66 johnny   node            12:44:24
+   80    23 johnny   node            12:44:24
+   93    23 johnny   node            12:44:24
+  126    43 johnny   bash            12:44:26
+  589   126 johnny   sleep           12:46:14
+  685   126 johnny   bash            12:46:33
+  687   685 johnny   bash            12:46:33
+  688   687 johnny   tee             12:46:33
+  689   685 johnny   ps              12:46:33
+Haciendo attach a sleep (PID: 589) en segundo plano.
+Archivo de traza: .scdebug/sleep/trace_{sleep}_8b62ac3b-41d4-4e35-a13d-e17f387d9015.txt
+strace: Process 589 attached
+./scdebug: line 42:   723 Killed                  $strace_command
+Error: strace exited with code 137 while tracing 589
+kill: usage: kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill -l [sigspec]
+strace: Process 317 attached
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- -----------------
+ 35.97    0.020601          23       877           ptrace
+ 26.54    0.015199          35       431           write
+ 25.22    0.014443          16       877         2 wait4
+  6.13    0.003513          20       175           process_vm_readv
+  1.42    0.000812          24        33        18 openat
+  0.67    0.000385          18        21           close
+  0.62    0.000354         118         3           clone
+  0.49    0.000282          23        12           mmap
+  0.44    0.000254          16        15           fstat
+  0.40    0.000229          15        15           fcntl
+  0.39    0.000221          15        14           rt_sigaction
+  0.32    0.000186         186         1           execve
+  0.21    0.000122          30         4           brk
+  0.19    0.000111          15         7         5 stat
+  0.12    0.000071          35         2           kill
+  0.11    0.000065          65         1           readlink
+  0.11    0.000061          30         2           uname
+  0.09    0.000054          18         3           pipe
+  0.09    0.000049          24         2           rt_sigprocmask
+  0.06    0.000037          18         2         1 arch_prctl
+  0.06    0.000033          16         2           dup2
+  0.05    0.000030          15         2           read
+  0.05    0.000026          26         1           getuid
+  0.04    0.000023          23         1           getgid
+  0.04    0.000022          22         1           mprotect
+  0.03    0.000020          20         1           futex
+  0.03    0.000016          16         1           set_tid_address
+  0.03    0.000015          15         1           prlimit64
+  0.02    0.000014          14         1           lseek
+  0.02    0.000014          14         1           set_robust_list
+  0.01    0.000008           8         1           getpid
+------ ----------- ----------- --------- --------- -----------------
+100.00    0.057270          22      2510        26 total
+kill: usage: kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill -l [sigspec]
+strace: Process 6055 attached
+./scdebug: line 289: strace:: command not found
+./scdebug: line 290: Try: command not found
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- -----------------
+ 34.84    0.018549          21       877           ptrace
+ 30.48    0.016230          18       877         2 wait4
+ 25.14    0.013388          31       431           write
+  5.74    0.003055          17       175           process_vm_readv
+  1.00    0.000532          16        33        18 openat
+  0.48    0.000256          12        21           close
+  0.44    0.000232          15        15           fstat
+  0.35    0.000185          15        12           mmap
+  0.32    0.000172          57         3           clone
+  0.21    0.000111           7        14           rt_sigaction
+  0.14    0.000077          38         2         1 arch_prctl
+  0.11    0.000059           8         7         5 stat
+  0.11    0.000057          14         4           brk
+  0.10    0.000051           3        15           fcntl
+  0.07    0.000037          18         2           kill
+  0.06    0.000030          30         1           readlink
+  0.05    0.000029          14         2           uname
+  0.05    0.000028          14         2           read
+  0.05    0.000026           8         3           pipe
+  0.04    0.000020          10         2           rt_sigprocmask
+  0.04    0.000020          20         1           getpid
+  0.03    0.000017          17         1           mprotect
+  0.03    0.000016          16         1           futex
+  0.03    0.000014          14         1           getgid
+  0.03    0.000014          14         1           prlimit64
+  0.02    0.000013          13         1           getuid
+  0.02    0.000013          13         1           set_tid_address
+  0.02    0.000013          13         1           set_robust_list
+  0.00    0.000000           0         1           lseek
+  0.00    0.000000           0         2           dup2
+  0.00    0.000000           0         1           execve
+------ ----------- ----------- --------- --------- -----------------
+100.00    0.053244          21      2510        26 total
+=============== COMANDO: ls ===============================================
+=============== ARCHIVO DE TRAZA: trace_4c38a4eb-5504-4818-afc0-6dfbe9c3f825.txt ========================================
+=============== HORA: 2023-11-05 23:55:25.200182126 +0100==============
+Archivo de volcado: .scdebug/ls/trace_volcado_98f1cf8b-b529-4f44-8828-affc929af223.txt
+=============== COMANDO: ls ===============================================
+=============== ARCHIVO DE TRAZA: trace_volcado_30245361-0938-4178-bc7b-3155bcb01550.txt ========================================
+=============== HORA: 2023-11-04 17:27:36.213575555 +0100==============
+Archivo de volcado: .scdebug/ls/trace_volcado_98f1cf8b-b529-4f44-8828-affc929af223.txt
+=============== COMANDO: ls ===============================================
+=============== ARCHIVO DE TRAZA: trace_5d7f6bde-9bfd-4c0f-a461-d3f3e6e0ab84.txt ========================================
+=============== HORA: 2023-11-04 17:25:11.703574463 +0100==============
+Archivo de volcado: .scdebug/ls/trace_volcado_98f1cf8b-b529-4f44-8828-affc929af223.txt
+=============== COMANDO: ls ===============================================
+=============== ARCHIVO DE TRAZA: trace_41aea92b-40f9-4a44-b566-3bc32c1c2fb3.txt ========================================
+=============== HORA: 2023-11-04 17:18:24.493575486 +0100==============
+Archivo de volcado: .scdebug/ls/trace_volcado_98f1cf8b-b529-4f44-8828-affc929af223.txt
+=============== COMANDO: ls ===============================================
+=============== ARCHIVO DE TRAZA: trace_575eecb0-8032-4a86-9b3e-927912903ee1.txt ========================================
+=============== HORA: 2023-11-04 17:17:54.553576193 +0100==============
+Archivo de volcado: .scdebug/ls/trace_volcado_98f1cf8b-b529-4f44-8828-affc929af223.txt
+=============== COMANDO: ls ===============================================
+=============== ARCHIVO DE TRAZA: trace_688ffc66-cc85-4368-afb3-a37aadf4c5ed.txt ========================================
+=============== HORA: 2023-11-04 16:00:23.503564565 +0100==============
+Archivo de volcado: .scdebug/ls/trace_volcado_98f1cf8b-b529-4f44-8828-affc929af223.txt
+=============== COMANDO: ls ===============================================
+=============== ARCHIVO DE TRAZA: trace_volcado_794594b2-691b-4891-8827-2832d7600c6c.txt ========================================
+=============== HORA: 2023-11-04 16:00:23.503564565 +0100==============
+Archivo de volcado: .scdebug/ls/trace_volcado_98f1cf8b-b529-4f44-8828-affc929af223.txt
+Comando ejecutándose en segundo plano.
+Trace file: .scdebug/ls/trace_98f1cf8b-b529-4f44-8828-affc929af223.txt
+total 2352
+-rwxr-xr-x 1 johnny johnny   27024 Nov  4 16:00 l2t
+-rw-r--r-- 1 johnny johnny     642 Nov  4 16:00 l2t.cc
+-rwxr-xr-x 1 johnny johnny   26976 Nov  5 23:25 ptbash
+-rw-r--r-- 1 johnny johnny     559 Nov  5 23:24 ptbash.cc
+-rwxr-xr-x 1 johnny johnny   13439 Nov  6 20:07 scdebug
+-rwxrwxrwx 1 johnny johnny 2324488 Nov  5 23:46 strace
+Procesos en ejecución del usuario johnny:
+  PID  PPID USER     COMMAND          STARTED
+   11    10 johnny   sh              15:43:43
+   12    11 johnny   sh              15:43:43
+   17    12 johnny   sh              15:43:44
+   21    17 johnny   node            15:43:44
+   33    32 johnny   node            15:43:45
+   41    40 johnny   node            15:43:46
+   47    21 johnny   node            15:43:46
+   57    21 johnny   node            15:43:46
+  110    21 johnny   node            15:43:48
+  128    47 johnny   bash            15:43:51
+ 4042   128 johnny   traced_./strace 16:25:29
+ 4044  4042 johnny   bash            16:25:29
+ 4045  4044 johnny   tee             16:25:29
+ 4172   128 johnny   bash            16:25:58
+ 4174  4172 johnny   bash            16:25:58
+ 4176  4172 johnny   ps              16:25:58
+ 4175  4174 johnny   tee             16:25:58
+Comando ejecutándose en segundo plano.
+Trace file: .scdebug//trace_315dc8b6-9db3-482a-9fcd-32bf1246ee1b.txt
+strace: must have PROG [ARGS] or -p PID
+Try 'strace -h' for more information.
+Error: strace exited with code 1 while tracing 
+No processes found for monitoring.
+Procesos en ejecución del usuario johnny:
+  PID  PPID USER     COMMAND          STARTED
+   11    10 johnny   sh              15:43:43
+   12    11 johnny   sh              15:43:43
+   17    12 johnny   sh              15:43:44
+   21    17 johnny   node            15:43:44
+   33    32 johnny   node            15:43:45
+   41    40 johnny   node            15:43:46
+   47    21 johnny   node            15:43:46
+   57    21 johnny   node            15:43:46
+  110    21 johnny   node            15:43:48
+  128    47 johnny   bash            15:43:51
+ 8304   128 johnny   bash            16:57:26
+ 8306  8304 johnny   bash            16:57:26
+ 8307  8304 johnny   ps              16:57:26
+ 8308  8306 johnny   tee             16:57:26
+Comando ejecutándose en segundo plano.
+Trace file: .scdebug/myprog/trace_88a3efc4-4fb0-4aec-924d-67c25c10ee1c.txt
+strace: Can't stat 'myprog': No such file or directory
+Error: strace exited with code 1 while tracing myprog
+Ejecutando: ./strace ls -la /usr/
+execve("/usr/bin/ls", ["ls", "-la", "/usr/"], 0x7ffee6d0f560 /* 33 vars */) = 0
+brk(NULL)                               = 0x55814f8ae000
+arch_prctl(0x3001 /* ARCH_??? */, 0x7ffd5e8f4cd0) = -1 EINVAL (Invalid argument)
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fd293a74000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=17083, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 17083, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fd293a6f000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libselinux.so.1", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=166280, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 177672, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fd293a43000
+mprotect(0x7fd293a49000, 139264, PROT_NONE) = 0
+mmap(0x7fd293a49000, 106496, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x6000) = 0x7fd293a49000
+mmap(0x7fd293a63000, 28672, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x20000) = 0x7fd293a63000
+mmap(0x7fd293a6b000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x27000) = 0x7fd293a6b000
+mmap(0x7fd293a6d000, 5640, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7fd293a6d000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+pread64(3, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48
+pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0i8\235HZ\227\223\333\350s\360\352,\223\340."..., 68, 896) = 68
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=2216304, ...}, AT_EMPTY_PATH) = 0
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+mmap(NULL, 2260560, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fd29381b000
+mmap(0x7fd293843000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7fd293843000
+mmap(0x7fd2939d8000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x7fd2939d8000
+mmap(0x7fd293a30000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x214000) = 0x7fd293a30000
+mmap(0x7fd293a36000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7fd293a36000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libpcre2-8.so.0", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=613064, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 615184, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fd293784000
+mmap(0x7fd293786000, 438272, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000) = 0x7fd293786000
+mmap(0x7fd2937f1000, 163840, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x6d000) = 0x7fd2937f1000
+mmap(0x7fd293819000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x94000) = 0x7fd293819000
+close(3)                                = 0
+mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fd293781000
+arch_prctl(ARCH_SET_FS, 0x7fd293781800) = 0
+set_tid_address(0x7fd293781ad0)         = 17350
+set_robust_list(0x7fd293781ae0, 24)     = 0
+rseq(0x7fd2937821a0, 0x20, 0, 0x53053053) = 0
+mprotect(0x7fd293a30000, 16384, PROT_READ) = 0
+mprotect(0x7fd293819000, 4096, PROT_READ) = 0
+mprotect(0x7fd293a6b000, 4096, PROT_READ) = 0
+mprotect(0x55814dd6d000, 4096, PROT_READ) = 0
+mprotect(0x7fd293aae000, 8192, PROT_READ) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+munmap(0x7fd293a6f000, 17083)           = 0
+statfs("/sys/fs/selinux", 0x7ffd5e8f4d10) = -1 ENOENT (No such file or directory)
+statfs("/selinux", 0x7ffd5e8f4d10)      = -1 ENOENT (No such file or directory)
+getrandom("\xcc\xb4\xba\x18\xef\x83\xc3\xb1", 8, GRND_NONBLOCK) = 8
+brk(NULL)                               = 0x55814f8ae000
+brk(0x55814f8cf000)                     = 0x55814f8cf000
+openat(AT_FDCWD, "/proc/filesystems", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0444, st_size=0, ...}, AT_EMPTY_PATH) = 0
+read(3, "nodev\tsysfs\nnodev\ttmpfs\nnodev\tbd"..., 1024) = 478
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+access("/etc/selinux/config", F_OK)     = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/locale-archive", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/share/locale/locale.alias", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=2996, ...}, AT_EMPTY_PATH) = 0
+read(3, "# Locale name alias data base.\n#"..., 4096) = 2996
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_IDENTIFICATION", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_IDENTIFICATION", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=258, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 258, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fd293aad000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache", O_RDONLY) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=27002, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 27002, PROT_READ, MAP_SHARED, 3, 0) = 0x7fd29377a000
+close(3)                                = 0
+futex(0x7fd293a35a6c, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_MEASUREMENT", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MEASUREMENT", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=23, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 23, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fd293a73000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_TELEPHONE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_TELEPHONE", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=47, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 47, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fd293a72000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_ADDRESS", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_ADDRESS", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=127, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 127, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fd293a71000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_NAME", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_NAME", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=62, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 62, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fd293a70000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_PAPER", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_PAPER", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=34, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 34, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fd293a6f000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_MESSAGES", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MESSAGES", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_EMPTY_PATH) = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=48, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 48, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fd293779000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_MONETARY", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MONETARY", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=270, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 270, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fd293778000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_COLLATE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_COLLATE", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=1406, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 1406, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fd293777000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_TIME", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_TIME", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=3360, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 3360, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fd293776000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_NUMERIC", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_NUMERIC", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=50, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 50, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fd293775000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_CTYPE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_CTYPE", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=353616, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 353616, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fd29371e000
+close(3)                                = 0
+ioctl(1, TCGETS, 0x7ffd5e8f4c40)        = -1 ENOTTY (Inappropriate ioctl for device)
+ioctl(1, TIOCGWINSZ, 0x7ffd5e8f4d30)    = -1 ENOTTY (Inappropriate ioctl for device)
+openat(AT_FDCWD, "/usr/share/locale/C.UTF-8/LC_TIME/coreutils.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/share/locale/C.utf8/LC_TIME/coreutils.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/share/locale/C/LC_TIME/coreutils.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+statx(AT_FDCWD, "/usr/", AT_STATX_SYNC_AS_STAT|AT_SYMLINK_NOFOLLOW, STATX_MODE|STATX_NLINK|STATX_UID|STATX_GID|STATX_MTIME|STATX_SIZE, {stx_mask=STATX_BASIC_STATS|0x1000, stx_attributes=0, stx_mode=S_IFDIR|0755, stx_size=4096, ...}) = 0
+lgetxattr("/usr/", "security.selinux", 0x55814f8b78d0, 255) = -1 ENODATA (No data available)
+getxattr("/usr/", "system.posix_acl_access", NULL, 0) = -1 ENODATA (No data available)
+getxattr("/usr/", "system.posix_acl_default", NULL, 0) = -1 ENODATA (No data available)
+socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 3
+connect(3, {sa_family=AF_UNIX, sun_path="/var/run/nscd/socket"}, 110) = -1 ENOENT (No such file or directory)
+close(3)                                = 0
+socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 3
+connect(3, {sa_family=AF_UNIX, sun_path="/var/run/nscd/socket"}, 110) = -1 ENOENT (No such file or directory)
+close(3)                                = 0
+newfstatat(AT_FDCWD, "/etc/nsswitch.conf", {st_mode=S_IFREG|0644, st_size=510, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/", {st_mode=S_IFDIR|0755, st_size=4096, ...}, 0) = 0
+openat(AT_FDCWD, "/etc/nsswitch.conf", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=510, ...}, AT_EMPTY_PATH) = 0
+read(3, "# /etc/nsswitch.conf\n#\n# Example"..., 4096) = 510
+read(3, "", 4096)                       = 0
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=510, ...}, AT_EMPTY_PATH) = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/etc/passwd", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=1420, ...}, AT_EMPTY_PATH) = 0
+lseek(3, 0, SEEK_SET)                   = 0
+read(3, "root:x:0:0:root:/root:/bin/bash\n"..., 4096) = 1420
+close(3)                                = 0
+socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 3
+connect(3, {sa_family=AF_UNIX, sun_path="/var/run/nscd/socket"}, 110) = -1 ENOENT (No such file or directory)
+close(3)                                = 0
+socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 3
+connect(3, {sa_family=AF_UNIX, sun_path="/var/run/nscd/socket"}, 110) = -1 ENOENT (No such file or directory)
+close(3)                                = 0
+newfstatat(AT_FDCWD, "/etc/nsswitch.conf", {st_mode=S_IFREG|0644, st_size=510, ...}, 0) = 0
+openat(AT_FDCWD, "/etc/group", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=784, ...}, AT_EMPTY_PATH) = 0
+lseek(3, 0, SEEK_SET)                   = 0
+read(3, "root:x:0:\ndaemon:x:1:\nbin:x:2:\ns"..., 4096) = 784
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/", O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY) = 3
+newfstatat(3, "", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_EMPTY_PATH) = 0
+getdents64(3, /* 14 entries */, 32768)  = 400
+statx(AT_FDCWD, "/usr/lib", AT_STATX_SYNC_AS_STAT|AT_SYMLINK_NOFOLLOW, STATX_MODE|STATX_NLINK|STATX_UID|STATX_GID|STATX_MTIME|STATX_SIZE, {stx_mask=STATX_BASIC_STATS|0x1000, stx_attributes=0, stx_mode=S_IFDIR|0755, stx_size=4096, ...}) = 0
+lgetxattr("/usr/lib", "security.selinux", 0x55814f8b8000, 255) = -1 ENODATA (No data available)
+getxattr("/usr/lib", "system.posix_acl_access", NULL, 0) = -1 ENODATA (No data available)
+getxattr("/usr/lib", "system.posix_acl_default", NULL, 0) = -1 ENODATA (No data available)
+statx(AT_FDCWD, "/usr/lib64", AT_STATX_SYNC_AS_STAT|AT_SYMLINK_NOFOLLOW, STATX_MODE|STATX_NLINK|STATX_UID|STATX_GID|STATX_MTIME|STATX_SIZE, {stx_mask=STATX_BASIC_STATS|0x1000, stx_attributes=0, stx_mode=S_IFDIR|0755, stx_size=4096, ...}) = 0
+lgetxattr("/usr/lib64", "security.selinux", 0x55814f8b8110, 255) = -1 ENODATA (No data available)
+getxattr("/usr/lib64", "system.posix_acl_access", NULL, 0) = -1 ENODATA (No data available)
+getxattr("/usr/lib64", "system.posix_acl_default", NULL, 0) = -1 ENODATA (No data available)
+statx(AT_FDCWD, "/usr/.", AT_STATX_SYNC_AS_STAT|AT_SYMLINK_NOFOLLOW, STATX_MODE|STATX_NLINK|STATX_UID|STATX_GID|STATX_MTIME|STATX_SIZE, {stx_mask=STATX_BASIC_STATS|0x1000, stx_attributes=0, stx_mode=S_IFDIR|0755, stx_size=4096, ...}) = 0
+lgetxattr("/usr/.", "security.selinux", 0x55814f8b8240, 255) = -1 ENODATA (No data available)
+getxattr("/usr/.", "system.posix_acl_access", NULL, 0) = -1 ENODATA (No data available)
+getxattr("/usr/.", "system.posix_acl_default", NULL, 0) = -1 ENODATA (No data available)
+statx(AT_FDCWD, "/usr/include", AT_STATX_SYNC_AS_STAT|AT_SYMLINK_NOFOLLOW, STATX_MODE|STATX_NLINK|STATX_UID|STATX_GID|STATX_MTIME|STATX_SIZE, {stx_mask=STATX_BASIC_STATS|0x1000, stx_attributes=0, stx_mode=S_IFDIR|0755, stx_size=4096, ...}) = 0
+lgetxattr("/usr/include", "security.selinux", 0x55814f8b8370, 255) = -1 ENODATA (No data available)
+getxattr("/usr/include", "system.posix_acl_access", NULL, 0) = -1 ENODATA (No data available)
+getxattr("/usr/include", "system.posix_acl_default", NULL, 0) = -1 ENODATA (No data available)
+statx(AT_FDCWD, "/usr/libexec", AT_STATX_SYNC_AS_STAT|AT_SYMLINK_NOFOLLOW, STATX_MODE|STATX_NLINK|STATX_UID|STATX_GID|STATX_MTIME|STATX_SIZE, {stx_mask=STATX_BASIC_STATS|0x1000, stx_attributes=0, stx_mode=S_IFDIR|0755, stx_size=4096, ...}) = 0
+lgetxattr("/usr/libexec", "security.selinux", 0x55814f8b84a0, 255) = -1 ENODATA (No data available)
+getxattr("/usr/libexec", "system.posix_acl_access", NULL, 0) = -1 ENODATA (No data available)
+getxattr("/usr/libexec", "system.posix_acl_default", NULL, 0) = -1 ENODATA (No data available)
+statx(AT_FDCWD, "/usr/games", AT_STATX_SYNC_AS_STAT|AT_SYMLINK_NOFOLLOW, STATX_MODE|STATX_NLINK|STATX_UID|STATX_GID|STATX_MTIME|STATX_SIZE, {stx_mask=STATX_BASIC_STATS|0x1000, stx_attributes=0, stx_mode=S_IFDIR|0755, stx_size=4096, ...}) = 0
+lgetxattr("/usr/games", "security.selinux", 0x55814f8b85d0, 255) = -1 ENODATA (No data available)
+getxattr("/usr/games", "system.posix_acl_access", NULL, 0) = -1 ENODATA (No data available)
+getxattr("/usr/games", "system.posix_acl_default", NULL, 0) = -1 ENODATA (No data available)
+statx(AT_FDCWD, "/usr/libx32", AT_STATX_SYNC_AS_STAT|AT_SYMLINK_NOFOLLOW, STATX_MODE|STATX_NLINK|STATX_UID|STATX_GID|STATX_MTIME|STATX_SIZE, {stx_mask=STATX_BASIC_STATS|0x1000, stx_attributes=0, stx_mode=S_IFDIR|0755, stx_size=4096, ...}) = 0
+lgetxattr("/usr/libx32", "security.selinux", 0x55814f8b8700, 255) = -1 ENODATA (No data available)
+getxattr("/usr/libx32", "system.posix_acl_access", NULL, 0) = -1 ENODATA (No data available)
+getxattr("/usr/libx32", "system.posix_acl_default", NULL, 0) = -1 ENODATA (No data available)
+statx(AT_FDCWD, "/usr/sbin", AT_STATX_SYNC_AS_STAT|AT_SYMLINK_NOFOLLOW, STATX_MODE|STATX_NLINK|STATX_UID|STATX_GID|STATX_MTIME|STATX_SIZE, {stx_mask=STATX_BASIC_STATS|0x1000, stx_attributes=0, stx_mode=S_IFDIR|0755, stx_size=12288, ...}) = 0
+lgetxattr("/usr/sbin", "security.selinux", 0x55814f8b8720, 255) = -1 ENODATA (No data available)
+getxattr("/usr/sbin", "system.posix_acl_access", NULL, 0) = -1 ENODATA (No data available)
+getxattr("/usr/sbin", "system.posix_acl_default", NULL, 0) = -1 ENODATA (No data available)
+statx(AT_FDCWD, "/usr/..", AT_STATX_SYNC_AS_STAT|AT_SYMLINK_NOFOLLOW, STATX_MODE|STATX_NLINK|STATX_UID|STATX_GID|STATX_MTIME|STATX_SIZE, {stx_mask=STATX_BASIC_STATS|0x1000, stx_attributes=0x2000 /* STATX_ATTR_??? */, stx_mode=S_IFDIR|0755, stx_size=4096, ...}) = 0
+lgetxattr("/usr/..", "security.selinux", 0x55814f8b8740, 255) = -1 ENODATA (No data available)
+getxattr("/usr/..", "system.posix_acl_access", NULL, 0) = -1 ENODATA (No data available)
+getxattr("/usr/..", "system.posix_acl_default", NULL, 0) = -1 ENODATA (No data available)
+statx(AT_FDCWD, "/usr/src", AT_STATX_SYNC_AS_STAT|AT_SYMLINK_NOFOLLOW, STATX_MODE|STATX_NLINK|STATX_UID|STATX_GID|STATX_MTIME|STATX_SIZE, {stx_mask=STATX_BASIC_STATS|0x1000, stx_attributes=0, stx_mode=S_IFDIR|0755, stx_size=4096, ...}) = 0
+lgetxattr("/usr/src", "security.selinux", 0x55814f8b8760, 255) = -1 ENODATA (No data available)
+getxattr("/usr/src", "system.posix_acl_access", NULL, 0) = -1 ENODATA (No data available)
+getxattr("/usr/src", "system.posix_acl_default", NULL, 0) = -1 ENODATA (No data available)
+statx(AT_FDCWD, "/usr/local", AT_STATX_SYNC_AS_STAT|AT_SYMLINK_NOFOLLOW, STATX_MODE|STATX_NLINK|STATX_UID|STATX_GID|STATX_MTIME|STATX_SIZE, {stx_mask=STATX_BASIC_STATS|0x1000, stx_attributes=0, stx_mode=S_IFDIR|0755, stx_size=4096, ...}) = 0
+lgetxattr("/usr/local", "security.selinux", 0x55814f8b8780, 255) = -1 ENODATA (No data available)
+getxattr("/usr/local", "system.posix_acl_access", NULL, 0) = -1 ENODATA (No data available)
+getxattr("/usr/local", "system.posix_acl_default", NULL, 0) = -1 ENODATA (No data available)
+statx(AT_FDCWD, "/usr/bin", AT_STATX_SYNC_AS_STAT|AT_SYMLINK_NOFOLLOW, STATX_MODE|STATX_NLINK|STATX_UID|STATX_GID|STATX_MTIME|STATX_SIZE, {stx_mask=STATX_BASIC_STATS|0x1000, stx_attributes=0, stx_mode=S_IFDIR|0755, stx_size=28672, ...}) = 0
+lgetxattr("/usr/bin", "security.selinux", 0x55814f8b87a0, 255) = -1 ENODATA (No data available)
+getxattr("/usr/bin", "system.posix_acl_access", NULL, 0) = -1 ENODATA (No data available)
+getxattr("/usr/bin", "system.posix_acl_default", NULL, 0) = -1 ENODATA (No data available)
+statx(AT_FDCWD, "/usr/share", AT_STATX_SYNC_AS_STAT|AT_SYMLINK_NOFOLLOW, STATX_MODE|STATX_NLINK|STATX_UID|STATX_GID|STATX_MTIME|STATX_SIZE, {stx_mask=STATX_BASIC_STATS|0x1000, stx_attributes=0, stx_mode=S_IFDIR|0755, stx_size=4096, ...}) = 0
+lgetxattr("/usr/share", "security.selinux", 0x55814f8b87c0, 255) = -1 ENODATA (No data available)
+getxattr("/usr/share", "system.posix_acl_access", NULL, 0) = -1 ENODATA (No data available)
+getxattr("/usr/share", "system.posix_acl_default", NULL, 0) = -1 ENODATA (No data available)
+statx(AT_FDCWD, "/usr/lib32", AT_STATX_SYNC_AS_STAT|AT_SYMLINK_NOFOLLOW, STATX_MODE|STATX_NLINK|STATX_UID|STATX_GID|STATX_MTIME|STATX_SIZE, {stx_mask=STATX_BASIC_STATS|0x1000, stx_attributes=0, stx_mode=S_IFDIR|0755, stx_size=4096, ...}) = 0
+lgetxattr("/usr/lib32", "security.selinux", 0x55814f8b87e0, 255) = -1 ENODATA (No data available)
+getxattr("/usr/lib32", "system.posix_acl_access", NULL, 0) = -1 ENODATA (No data available)
+getxattr("/usr/lib32", "system.posix_acl_default", NULL, 0) = -1 ENODATA (No data available)
+getdents64(3, /* 0 entries */, 32768)   = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/share/locale/C.UTF-8/LC_MESSAGES/coreutils.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/share/locale/C.utf8/LC_MESSAGES/coreutils.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/share/locale/C/LC_MESSAGES/coreutils.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/share/locale-langpack/C.UTF-8/LC_MESSAGES/coreutils.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/share/locale-langpack/C.utf8/LC_MESSAGES/coreutils.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/share/locale-langpack/C/LC_MESSAGES/coreutils.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+newfstatat(1, "", {st_mode=S_IFIFO|0600, st_size=0, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/etc/localtime", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=2614, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=2614, ...}, AT_EMPTY_PATH) = 0
+read(3, "TZif2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\v\0\0\0\v\0\0\0\0"..., 4096) = 2614
+lseek(3, -1645, SEEK_CUR)               = 969
+read(3, "TZif2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\v\0\0\0\v\0\0\0\0"..., 4096) = 1645
+close(3)                                = 0
+write(1, "total 88\ndrwxr-xr-x 14 root root"..., 686total 88
+drwxr-xr-x 14 root root  4096 Oct 25  2022 .
+drwxr-xr-x 19 root root  4096 Nov  5 22:41 ..
+drwxr-xr-x  2 root root 28672 Nov  1 18:03 bin
+drwxr-xr-x  2 root root  4096 Apr 18  2022 games
+drwxr-xr-x 34 root root  4096 Oct  9 18:57 include
+drwxr-xr-x 62 root root  4096 Oct 14 00:11 lib
+drwxr-xr-x  2 root root  4096 Oct 25  2022 lib32
+drwxr-xr-x  2 root root  4096 Oct 25  2022 lib64
+drwxr-xr-x  7 root root  4096 Oct 25  2022 libexec
+drwxr-xr-x  2 root root  4096 Oct 25  2022 libx32
+drwxr-xr-x 10 root root  4096 Oct 25  2022 local
+drwxr-xr-x  2 root root 12288 Nov  1 18:03 sbin
+drwxr-xr-x 95 root root  4096 Oct 14 00:11 share
+drwxr-xr-x  3 root root  4096 Oct  9 18:57 src
+) = 686
+close(1)                                = 0
+close(2)                                = 0
+exit_group(0)                           = ?
++++ exited with 0 +++
