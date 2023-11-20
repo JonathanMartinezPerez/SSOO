@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 #include <vector>
 #include <netinet/in.h>
@@ -19,8 +21,10 @@
 
 using make_socket_result = std::expected<int, std::error_code>;
 
+//Creamos una clase Sockets la cual hace el make del socket en el constructor y el close en el destructor
 class Sockets {
 public:
+    //Constructor con el make
     Sockets(const std::optional<sockaddr_in>& address = std::nullopt) {
         sockfd = socket(AF_INET, SOCK_DGRAM, 0);
 
@@ -35,13 +39,14 @@ public:
             }
         }
     }
-
+    //Destructor con el close
     ~Sockets() {
         if (sockfd != -1) {
             close(sockfd);
         }
     }
 
+    //Función para mandar el mentaje tras leerlo
     std::error_code sendTo(const std::vector<uint8_t>& message, const sockaddr_in& address) const {
         ssize_t bytesSent = sendto(sockfd, message.data(), message.size(), 0,
                                    reinterpret_cast<const sockaddr*>(&address), sizeof(sockaddr_in));
@@ -53,7 +58,7 @@ public:
         return std::error_code(); // Éxito
     }
 
-    
+    //Función para crear las direcciones de origen y destino
     static std::optional<sockaddr_in> make_ip_address(const std::optional<std::string>& ip_address, uint16_t port) {
         sockaddr_in addr{};
         addr.sin_family = AF_INET;
@@ -69,7 +74,8 @@ public:
 
         return addr;
     }
-
+    
+    //Getter del socket
     int getSocketFD() const {
         return sockfd;
     }

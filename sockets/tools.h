@@ -9,6 +9,7 @@
 #include <unistd.h>
 #include <errno.h>
 
+//Namespace para las utilities
 namespace tools {
 
 struct program_options {
@@ -16,6 +17,7 @@ struct program_options {
     std::string filename;
 };
 
+//Función para obtener el valor de una variable de entorno (parte2)
 std::string getenv(const std::string &name) {
     char *value = std::getenv(name.c_str());
     if (value) {
@@ -25,6 +27,8 @@ std::string getenv(const std::string &name) {
     }
 }
 
+
+//Función para procesar los argumentos de la línea de comandos, la -o tiene un arg detras que es el fichero
 std::optional<program_options> parse_args(int argc, char *argv[]) {
     
     program_options options;
@@ -47,12 +51,14 @@ std::optional<program_options> parse_args(int argc, char *argv[]) {
     return options;
 }
 
+//Función para mostrar la ayuda
 void print_usage() {
     std::cout << "Usage: ./netcp -h -o <input_file>\n";
     std::cout << "-h: Muestra esta ayuda\n";
     std::cout << "-o: Archivo de entrada\n";
 }
 
+//Función para leer el fichero
 std::error_code read_file(int fd, std::vector<uint8_t> &buffer) {
     ssize_t bytes_read = read(fd, buffer.data(), buffer.size());
     if (bytes_read < 0) {
